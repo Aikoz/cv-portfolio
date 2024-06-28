@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Chip, Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
+import { Box, Chip, Grid, IconButton, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
 import { Delete, EditNote } from "@mui/icons-material";
 import { server } from "../../../utils/constants";
 import { DateFormatter } from '../../../utils/dateFormatter'
@@ -10,9 +10,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
   fontWeight: 200,
   fontSize: '20px',
   width: '70%',
-  color: 'lightgray',
-  // backgroundColor: 'green',
-  // textAlign: 'center',
+  color: 'lightgray'
 }));
 
 interface OutletContextType {
@@ -48,7 +46,7 @@ export function PortfolioHome() {
       .then((data) => {
         console.dir(data)
         if (data[0].code) {
-          getEnviosData()
+          // getEnviosData()
         } else {
           alert(data[0].message);
 
@@ -214,11 +212,11 @@ export function PortfolioHome() {
   }
 
   useEffect(() => {
-    getEnviosData()
-    getProjectData()
-    getNotificationData()
-    getTypeNotificationData()
-    getCriteriaData()
+    // getEnviosData()
+    // getProjectData()
+    // getNotificationData()
+    // getTypeNotificationData()
+    // getCriteriaData()
     setSharedTitle('asd');
 
   }, [])
@@ -226,110 +224,1753 @@ export function PortfolioHome() {
 
 
   return (
-    <Grid container spacing={3}>
-      <Typography
-        sx={{
-          fontFamily: 'Libre Franklin, Arial, sans-serif',
-          fontWeight: '600',
-          fontSize: '40px',
-          width: '70%',
-          color: 'green'
-          // backgroundColor:'green',
-          // textAlign: 'center'
-        }}
-      >
-        José Luis Florencio Ortíz
-      </Typography>
-     
-        <Typography
-          sx={{
-            fontFamily: 'Libre Franklin, Arial, sans-serif',
-            fontWeight: '200',
-            fontSize: '20px',
-            width: '70%',
-            color: 'lightgray'
-            // backgroundColor:'green',
-            // textAlign: 'center'
-          }}
-        >
-          Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
-        </Typography>
+
+    <Grid container direction={'row'} spacing={2}>
+      <Grid item spacing={2}>
+        <Stack>
+          <Typography
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '600',
+              fontSize: '45px',
+              width: '70%',
+              color: 'green'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            José Luis Florencio Ortíz
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '20px',
+              width: '70%',
+              color: 'lightgray'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
+          </Typography>
+
+          <Typography
+            mt={2}
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '800',
+              fontSize: '25px',
+              width: '70%',
+              color: 'green'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            Relevant experience
+          </Typography>
+
+          {/* pharagraphs::::::::::::::::::::::::::::::::::::: */}
+          <Stack gap={2} mt={2}>
+
+            <Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Senior Systems Analyst
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Ciudad Maderas
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  September 2022 - Today
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Maintenance, developing and testing of new mobile applications integrating polished interfaces to ensure content Experience, responsiveness, video quality, audio quality, and functional stability
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Unlisted app distribution on Apple Connect platform for a new created mobile application that needs to be distributed among clients and employees of the company for whom we do not have access to their devices
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Developed and ship web back-end and front-end web apps using node and react technologies
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Alexa skill developed to bring Ciudad Maderas’s customers with an easy way to consult information about their land
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Collaborated with a salesforce team to integrate a react project and a swift application with one of their solutions where we ended using  also Cincel, Google cloud Storage and Metamap to bring an entirely digital investing platform
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Developed a react app and a Swift app for an NFT investing platform
+                </Typography>
+
+              </Box>
+            </Box>
+
+            <Box>
 
 
-      <Typography
-        sx={{
-          fontFamily: 'Libre Franklin, Arial, sans-serif',
-          fontWeight: '800',
-          fontSize: '25px',
-          width: '70%',
-          color: 'green'
-          // backgroundColor:'green',
-          // textAlign: 'center'
-        }}
-      >
-        Relevant experience
-      </Typography>
-      <Box sx={{
-        display:'flex',
-        direction:'row',
-        gap:'10px',
-        width:'100%',
-        alignItems: 'center', 
-        justifyItems: 'center'
-      }}>
-      <Typography
-        variant="h6"
-        sx={{
-          fontFamily: 'Libre Franklin, Arial, sans-serif',
-          fontWeight: '200',
-          fontSize: '20px',
-          width: 'auto',
-          color: 'white'
-        }}
-      >
-        Senior Systems Analyst
-      </Typography>
-      <Typography
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Junior Systems Analyst
+                </Typography>
+                <Typography
 
-        sx={{
-          fontFamily: 'Libre Franklin, Arial, sans-serif',
-          fontWeight: '200',
-          fontSize: '20px',
-          width: 'auto',
-          color: 'white'
-        }}
-      >
-        ·  
-      </Typography>
-      
-      <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
 
-        sx={{
-          fontFamily: 'Libre Franklin, Arial, sans-serif',
-          fontWeight: '800',
-          fontSize: '20px',
-          width: 'auto',
-          color: 'white'
-        }}
-      >
-        Ciudad Maderas
-      </Typography>
-      <Typography
-        // noWrap
-        sx={{
-          fontFamily: 'Libre Franklin, Arial, sans-serif',
-          fontWeight: '200',
-          fontSize: '15px',
-          textAlign: 'bottom',
-          width: 'auto',
-          color: 'lightgray'
-        }}
-      >
-        September 2022 - Today
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Ciudad Maderas
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  February 2020 - September 2022
 
-      </Typography>
-      </Box>
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Maintenance, developing and testing of new features for different Swift mobile applications already published in the apple and Google play stores
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Implementation of Facebook Marketing tools to collect user statistics and use them to improve the company's different applications
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%',
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Collaborated with other programmers and designers to design new applications and websites for Ciudad Maderas
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Built and delivered technical solutions according to stakeholder business requirements
+                </Typography>
+
+              </Box>
+
+            </Box>
+
+            <Box>
+
+
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Independent App Developer
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Waisoft
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  November 2018 – December 2019
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Collaborated with designers and other developers to develop, maintain and ship production applications for different clients from countries like Argentina, Spain and France
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Work from home and using tools like google meet and github to develop quality applications
+                </Typography>
+
+              </Box>
+            </Box>
+
+            <Box>
+
+
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Trainee
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Truper
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  January — june 2018
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Developed a Business Intelligence system to automate reporting tasks for the procurement department using C#, VBA from Microsoft and ABAP from SAP
+                </Typography>
+              </Box>
+
+            </Box>
+
+
+          </Stack>
+
+          <Typography
+            mt={2}
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '800',
+              fontSize: '25px',
+              width: '70%',
+              color: 'green'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            Languages
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '20px',
+              width: 'auto',
+              color: 'white'
+            }}
+          >
+            Spanish → native
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '20px',
+              width: 'auto',
+              color: 'white'
+            }}
+          >
+            English →  C1
+          </Typography>
+        </Stack>
+      </Grid>
+      <Grid item spacing={2}>
+        <Stack>
+          <Typography
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '600',
+              fontSize: '45px',
+              width: '70%',
+              color: 'green'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            José Luis Florencio Ortíz
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '20px',
+              width: '70%',
+              color: 'lightgray'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
+          </Typography>
+
+          <Typography
+            mt={2}
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '800',
+              fontSize: '25px',
+              width: '70%',
+              color: 'green'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            Relevant experience
+          </Typography>
+
+          {/* pharagraphs::::::::::::::::::::::::::::::::::::: */}
+          <Stack gap={2} mt={2}>
+
+            <Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Senior Systems Analyst
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Ciudad Maderas
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  September 2022 - Today
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Maintenance, developing and testing of new mobile applications integrating polished interfaces to ensure content Experience, responsiveness, video quality, audio quality, and functional stability
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Unlisted app distribution on Apple Connect platform for a new created mobile application that needs to be distributed among clients and employees of the company for whom we do not have access to their devices
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Developed and ship web back-end and front-end web apps using node and react technologies
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Alexa skill developed to bring Ciudad Maderas’s customers with an easy way to consult information about their land
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Collaborated with a salesforce team to integrate a react project and a swift application with one of their solutions where we ended using  also Cincel, Google cloud Storage and Metamap to bring an entirely digital investing platform
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Developed a react app and a Swift app for an NFT investing platform
+                </Typography>
+
+              </Box>
+            </Box>
+
+            <Box>
+
+
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Junior Systems Analyst
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Ciudad Maderas
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  February 2020 - September 2022
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Maintenance, developing and testing of new features for different Swift mobile applications already published in the apple and Google play stores
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Implementation of Facebook Marketing tools to collect user statistics and use them to improve the company's different applications
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%',
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Collaborated with other programmers and designers to design new applications and websites for Ciudad Maderas
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Built and delivered technical solutions according to stakeholder business requirements
+                </Typography>
+
+              </Box>
+
+            </Box>
+
+            <Box>
+
+
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Independent App Developer
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Waisoft
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  November 2018 – December 2019
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Collaborated with designers and other developers to develop, maintain and ship production applications for different clients from countries like Argentina, Spain and France
+                </Typography>
+
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Work from home and using tools like google meet and github to develop quality applications
+                </Typography>
+
+              </Box>
+            </Box>
+
+            <Box>
+
+
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '10px',
+                width: '100%',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Trainee
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  ·
+                </Typography>
+                <Typography
+
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Truper
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '15px',
+                    textAlign: 'bottom',
+                    width: 'auto',
+                    color: 'lightgray'
+                  }}
+                >
+                  January — june 2018
+
+                </Typography>
+              </Box>
+              {/* body::::::::::::::::::::::::::::::::::::: */}
+              <Box sx={{
+                display: 'flex',
+                direction: 'row',
+                gap: '20px',
+                width: '100%',
+                alignItems: 'top',
+                justifyItems: 'center',
+
+              }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '800',
+                    fontSize: '20px',
+                    width: 'auto',
+                    marginLeft: '30px',
+                    color: 'white',
+                    textAlign: 'top',
+                    textJustify: 'top',
+                    height: '100%'
+
+                  }}
+                >
+                  ●
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: '200',
+                    fontSize: '20px',
+                    width: 'auto',
+                    color: 'white'
+                  }}
+                >
+                  Developed a Business Intelligence system to automate reporting tasks for the procurement department using C#, VBA from Microsoft and ABAP from SAP
+                </Typography>
+              </Box>
+
+            </Box>
+
+
+          </Stack>
+
+          <Typography
+            mt={2}
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '800',
+              fontSize: '25px',
+              width: '70%',
+              color: 'green'
+              // backgroundColor:'green',
+              // textAlign: 'center'
+            }}
+          >
+            Languages
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '20px',
+              width: 'auto',
+              color: 'white'
+            }}
+          >
+            Spanish → native
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '20px',
+              width: 'auto',
+              color: 'white'
+            }}
+          >
+            English →  C1
+          </Typography>
+        </Stack>
+      </Grid>
+      <Grid item spacing={2}>
+
+      </Grid>
     </Grid>
+
   )
 
 }

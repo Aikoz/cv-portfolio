@@ -117,7 +117,7 @@ export default function LandingTopBar(props: any) {
         padding: '1rem',
         fontSize: '1.15em',
         lineHeight: '1.5em',
-        borderRadius: '1.25rem', // descomentarlo si se necesita
+        borderRadius: '0.5rem', // descomentarlo si se necesita
         margin: '1rem', // descomentarlo si se necesita
         }}>
 

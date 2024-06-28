@@ -166,7 +166,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
             padding: '1rem',
             fontSize: '1.15em',
             lineHeight: '1.5em',
-            borderRadius: '1.25rem', // descomentarlo si se necesita
+            borderRadius: '0.5rem', // descomentarlo si se necesita
             margin: '1rem', // descomentarlo si se necesita
           }
         }}
@@ -256,16 +256,17 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
         {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
 
         <Card variant="outlined" sx={{
-          maxWidth: '100vw', height: '84.25vh', backdropFilter: 'blur(16px) saturate(180%)',
+          maxWidth: '100vw', minHeight: '84.25vh', backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-          backgroundColor: 'rgba(17, 25, 40, 0.65)',
+          backgroundColor: 'rgba(9, 9, 9, 0.65)',
+          backgroundColor: 'rgba(9, 9, 9, 0.65)',
           border: '1px solid rgba(36, 28, 28, 0.125)',
           color: '#ffffffdd',
           flex: '1 1 auto',
           padding: '1rem',
           fontSize: '1.15em',
           lineHeight: '1.5em',
-          borderRadius: '1.25rem',
+          borderRadius: '0.5rem',
           // margin: '1rem'
         }}
         >
