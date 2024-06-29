@@ -144,7 +144,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
       backgroundPosition: 'center',
     }}>
       
-      <LandingTopBar handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} open={open} closeSession={handleLogout}></LandingTopBar>
+      <LandingTopBar handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} open={open} closeSession={handleLogout} sharedTitle={sharedTitle}></LandingTopBar>
 
     
       <Drawer
@@ -259,7 +259,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
           maxWidth: '100vw', minHeight: '84.25vh', backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
           backgroundColor: 'rgba(9, 9, 9, 0.65)',
-          backgroundColor: 'rgba(9, 9, 9, 0.65)',
+          //backgroundColor: 'rgba(9, 9, 9, 0.65)',
           border: '1px solid rgba(36, 28, 28, 0.125)',
           color: '#ffffffdd',
           flex: '1 1 auto',

@@ -19,7 +19,7 @@ import BrandImg from '../../assets/whiteblack.png'
 import { green } from '@mui/material/colors';
 
 export default function LandingTopBar(props: any) {
-  const {handleDrawerOpen, open, closeSession, drawerWidth} = props
+  const {handleDrawerOpen, open, closeSession, drawerWidth, sharedTitle} = props
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -165,7 +165,7 @@ export default function LandingTopBar(props: any) {
                              fontWeight: '600', 
                              fontSize: '45px' }}}
             >
-            Bienvenido.
+            {sharedTitle}
             
           </Typography>
 
