@@ -17,7 +17,7 @@ interface OutletContextType {
   setSharedTitle: (title: string) => void;
 }
 
-export function PortfolioHome() {
+export function PortfolioCV() {
 
   const { setSharedTitle } = useOutletContext<OutletContextType>();
   const [openEditModal, setOpenEditModal] = useState(false)

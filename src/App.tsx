@@ -10,6 +10,7 @@ import { Proyectos } from './components/dashboard/components/Proyectos';
 import { Criterios } from './components/dashboard/components/Criterios';
 import { LandingPageLayout } from './components/landing-page/landingPageLayout';
 import { PortfolioHome } from './components/landing-page/portfolio-home/portfolioHome';
+import { PortfolioCV } from './components/landing-page/portfolio-cv/portfolioCV';
 
 
 interface RememberLastVisitedPathProps {
@@ -57,6 +58,7 @@ export function App() {
             <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/landingPage/"  element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle}/> : <Navigate to="/" />} >
             <Route index path="portfolioHome" element={<PortfolioHome  />} />
+            <Route index path="resume" element={<PortfolioCV  />} />
 
 
             </Route>

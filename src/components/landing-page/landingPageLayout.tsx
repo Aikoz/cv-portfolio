@@ -20,7 +20,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { FactCheckOutlined, NotificationsNone, SendAndArchive, SummarizeOutlined } from '@mui/icons-material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import backgroundImage from '../../assets/fondo1.jpg';
+import backgroundImage from '../../assets/fondo3.jpg';
 import TopBar from '../dashboard/topBar/topBar';
 import LandingTopBar from '../general-reusable-components/landingTopBar';
 import BrandImg from '../../assets/blackwhite.png'
