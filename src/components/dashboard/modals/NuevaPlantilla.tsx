@@ -1,10 +1,8 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import { Box, Button, Card, CardContent, Chip, Collapse, Container, FormControl, FormControlLabel, FormGroup, FormHelperText, Grid, InputLabel, ListItem, MenuItem, Modal, OutlinedInput, Paper, Select, SelectChangeEvent, Stack, Switch, Tab, TextField, Theme, Typography, colors, styled, useTheme } from '@mui/material';
-import { FormatAlignJustify, InsertEmoticon, Padding, WidthFull } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { Box, Button, Card, CardContent, Chip, Collapse, FormControl, FormControlLabel, FormHelperText, Grid, InputLabel, MenuItem, Modal, OutlinedInput, Paper, Select, SelectChangeEvent, Stack, Switch, Tab, TextField, Theme, Typography, styled, useTheme } from '@mui/material';
+// import { useNavigate } from 'react-router-dom';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import dayjs, { Dayjs } from 'dayjs';
-import TagFacesIcon from '@mui/icons-material/TagFaces';
 import NotificationsIcon from '../../../assets/alarm.png';
 import NotificationsSlashIcon from '../../../assets/mute.png';
 import { server } from '../../../utils/constants'
@@ -18,16 +16,16 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs().tz('America/Mexico_City');
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//     PaperProps: {
+//         style: {
+//             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//             width: 250,
+//         },
+//     },
+// };
 
 interface ChipData {
     key: number;
@@ -123,18 +121,18 @@ export const NuevaPlantilla = (props: any) => {
     const [typeNotification, setTypeNotification] = useState('');
     const [typeNotifictionId, setTypeNotificationId] = useState(0);
     const theme = useTheme();
-    const [personName, setPersonName] = React.useState<string[]>([]);
+    const [personName] = React.useState<string[]>([]);
 
     //handlers para archivo
-    const [file, setFile] = useState<File | null>(null);
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+    // const [file, setFile] = useState<File | null>(null);
+    const [selectedFile] = useState<File | null>(null);
+    // const navigate = useNavigate();
+    // const [loading, setLoading] = useState(false);
     const [chipData, setChipData] = useState<ChipData[]>([]);
     const [dataListBase, setDataListBase] = useState<DataList[]>([]);
     const [pickerDataList, setPickerDataList] = useState<DataList[]>([]);
-    const [uploadStatus, setUploadStatus] = useState('');
-    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    // const [uploadStatus, setUploadStatus] = useState('');
+    const [previewUrl] = useState<string | null>(null);
 
     useEffect(() => {
         setPickerDataList(criteriaData)
@@ -144,7 +142,7 @@ export const NuevaPlantilla = (props: any) => {
             setDescripcion(notificationsData[editIndex].descripcion)
             setRutaImagen(notificationsData[editIndex].imagen)
             setRutaAccion(notificationsData[editIndex].action_url)
-            let tipoNotif = notificationsData[editIndex].id_tipo_notificacion;
+            // let tipoNotif = notificationsData[editIndex].id_tipo_notificacion;
             setImage(notificationsData[editIndex].imagen)
             handleOpen()
 
@@ -203,7 +201,6 @@ export const NuevaPlantilla = (props: any) => {
                 return response.json()
             })
                 .then((data) => {
-                    setLoading(false);
                     if (data[0].code == 1) {
                         getNotificationData()
 
@@ -213,6 +210,7 @@ export const NuevaPlantilla = (props: any) => {
 
                     }
                 });
+                console.dir(response)
 
             handleClose();
 
@@ -288,7 +286,6 @@ export const NuevaPlantilla = (props: any) => {
                 return response.json()
             })
                 .then((data) => {
-                    setLoading(false);
                     if (data[0].code == 1) {
                         getNotificationData()
 
@@ -298,14 +295,15 @@ export const NuevaPlantilla = (props: any) => {
 
                     }
                 });
+                console.dir(response)
 
             handleClose();
 
         }
     };
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    };
+    // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // };
     const handleSelectProyecto = (event: SelectChangeEvent<typeof proyecto>, key: any) => {
 
         const itemKey = key.key.slice(2);
@@ -322,11 +320,11 @@ export const NuevaPlantilla = (props: any) => {
 
     };
 
-    const handleSelectIntervalo = (event: SelectChangeEvent<typeof proyecto>, key: any) => {
+    // const handleSelectIntervalo = (event: SelectChangeEvent<typeof proyecto>, key: any) => {
 
-        const itemKey = key.key;
+    //     const itemKey = key.key;
 
-    };
+    // };
 
 
 
@@ -348,11 +346,11 @@ export const NuevaPlantilla = (props: any) => {
 
         chipData.forEach(chip => {
             let itemKey = chip.key
-            criteriaData.forEach(criteriaRow => {
+            criteriaData.forEach((criteriaRow: any) => {
 
                 if (criteriaRow.id_criterio == itemKey) {
                     if (criteriaRow.listaDatos) {
-                        criteriaRow.listaDatos.forEach(dataRow => {
+                        criteriaRow.listaDatos.forEach((dataRow:any) => {
 
                             let newDataRow: DataList = {
                                 id_criterio: dataRow.id_criterio,
@@ -381,7 +379,7 @@ export const NuevaPlantilla = (props: any) => {
     }, [chipData])
 
 
-    const updateDataListValue = (id, newValue) => {
+    const updateDataListValue = (id:any, newValue:any) => {
 
 
         setDataListBase(prevBase => {
@@ -449,29 +447,29 @@ export const NuevaPlantilla = (props: any) => {
         if (label) {
             const newChip: ChipData = { key: itemKey, label };
             setChipData((chips) => [...chips, newChip]);
-            setPickerDataList((option: any) => pickerDataList.filter((pickerDataList: any) => pickerDataList.titulo !== label));
+            setPickerDataList(() => pickerDataList.filter((pickerDataList: any) => pickerDataList.titulo !== label));
         }
     };
 
     //loader_____________________________________________
 
 
-    const handleFileChange = (event) => {
+    // const handleFileChange = (event:any) => {
 
-        const file = event.target.files[0];
-        setSelectedFile(file);
+    //     const file = event.target.files[0];
+    //     setSelectedFile(file);
 
 
-        // Crear una URL de vista previa para la imagen seleccionada
-        const reader = new FileReader();
-        reader.onloadend = () => {
+    //     // Crear una URL de vista previa para la imagen seleccionada
+    //     const reader = new FileReader();
+    //     reader.onloadend = () => {
 
-            if (typeof reader.result === 'string') {
-                setPreviewUrl(reader.result);
-            }
-        };
-        reader.readAsDataURL(file);
-    };
+    //         if (typeof reader.result === 'string') {
+    //             setPreviewUrl(reader.result);
+    //         }
+    //     };
+    //     reader.readAsDataURL(file);
+    // };
 
 
     const setImage = (image: any) => {
@@ -498,9 +496,12 @@ export const NuevaPlantilla = (props: any) => {
 
         // Configurar el evento onload del FileReader para obtener la URL de datos
         fileReader.onload = (event) => {
-            const dataURL = event.target.result;
-            console.log('DataURL:', dataURL);
-            setPreviewUrl(dataURL)
+            if (event.target){
+                const dataURL = event.target.result;
+                console.log('DataURL:', dataURL);
+                // setPreviewUrl(dataURL)
+            }
+
         };
 
         // Leer el contenido del archivo como URL de datos

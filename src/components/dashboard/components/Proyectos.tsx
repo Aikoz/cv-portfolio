@@ -1,7 +1,5 @@
-import { Box, Card, CardMedia, Divider, Grid, IconButton, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
-import Layout from "./Layout";
+import { Box, Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditNoteIcon from '@mui/icons-material/EditNote';
 import { NuevoProyecto } from "../modals/NuevoProyecto";
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
@@ -57,6 +55,7 @@ export function Proyectos() {
         }
 
       });
+      console.dir(response)
 
   }
 
@@ -85,6 +84,8 @@ export function Proyectos() {
         }
 
       });
+      console.dir(response)
+
   }
 
   useEffect(() => {

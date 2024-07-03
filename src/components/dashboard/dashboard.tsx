@@ -1,29 +1,26 @@
-import { Route, Routes, useNavigate, Link, Outlet, useLocation } from 'react-router-dom';
-import { Button, Card, Grid, Stack } from '@mui/material';
+import { useNavigate, Link, Outlet, useLocation } from 'react-router-dom';
+import { Card, Stack } from '@mui/material';
 import TopBar from './topBar/topBar';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { DashboardOutlined, FactCheckOutlined, NotificationsNone, SendAndArchive, SummarizeOutlined } from '@mui/icons-material';
+import { FactCheckOutlined, NotificationsNone, SendAndArchive, SummarizeOutlined } from '@mui/icons-material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import backgroundImage from '../../assets/fondo1.jpg';
-import { useOutletContext } from "react-router-dom";
 
 
 const drawerWidth = 240;
@@ -50,9 +47,9 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
-interface OutletContextType {
-  setSharedTitle: Dispatch<SetStateAction<string>>;
-}
+// interface OutletContextType {
+//   setSharedTitle: Dispatch<SetStateAction<string>>;
+// }
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -124,7 +121,7 @@ export function Dashboard({ setIsLoggedIn, isLoggedIn, sharedTitle, setSharedTit
   function handleDrawerClose(path: string) {
     path != '' ? window.localStorage.setItem('path', path) : console.dir('')
 
-    const direccion = window.localStorage.getItem('path')
+    // const direccion = window.localStorage.getItem('path')
 
     setOpen(false);
   };

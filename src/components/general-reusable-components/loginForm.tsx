@@ -21,7 +21,7 @@ export function LoginForm({ setIsLoggedIn }: any){
 
         event.preventDefault()
     
-        const formData = new FormData(event.currentTarget)
+        // const formData = new FormData(event.currentTarget)
         const token = "token"
         const deviceId = "deviceid"
         const encodedpass = password as string
@@ -58,6 +58,9 @@ export function LoginForm({ setIsLoggedIn }: any){
     
     
           });
+
+          console.dir(response)
+          
       };        
     return(
         <>

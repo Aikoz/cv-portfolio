@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import Layout from "./Layout";
 import { useOutletContext } from "react-router-dom";
 import { Box, Chip, Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
-import { NuevoProyecto } from "../modals/NuevoProyecto";
 import { Delete, EditNote } from "@mui/icons-material";
 import { server } from "../../../utils/constants";
 import {DateFormatter} from '../../../utils/dateFormatter'
@@ -67,6 +65,8 @@ export function HomePage () {
           }
   
         });
+        console.dir(response)
+
   
     }
     const getTypeNotificationData = async () => {
@@ -97,6 +97,8 @@ export function HomePage () {
           }
   
         });
+        console.dir(response)
+
     }
   
     const getEnviosData = async () => {
@@ -128,6 +130,8 @@ export function HomePage () {
           }
   
         });
+        console.dir(response)
+
     }
 
     const getProjectData = async () => {
@@ -159,6 +163,8 @@ export function HomePage () {
           }
   
         });
+        console.dir(response)
+
     }
 
     const getCriteriaData = async () => {
@@ -193,6 +199,8 @@ export function HomePage () {
           }
   
         });
+        console.dir(response)
+
     }
 
     const getNotificationData = async () => {
@@ -223,6 +231,8 @@ export function HomePage () {
           }
   
         });
+        console.dir(response)
+
     }
 
     useEffect(() => {

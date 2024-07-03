@@ -1,13 +1,8 @@
 // App.js
 import { useState, useEffect, ReactNode  } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate, Outlet  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate  } from 'react-router-dom';
 import Login from './components/login/login';
-import {Dashboard} from './components/dashboard/dashboard';
 import './App.css'
-import { HomePage } from './components/dashboard/components/HomePage';
-import { NotificationAdmin } from './components/dashboard/components/NotificationAdmin';
-import { Proyectos } from './components/dashboard/components/Proyectos';
-import { Criterios } from './components/dashboard/components/Criterios';
 import { LandingPageLayout } from './components/landing-page/landingPageLayout';
 import { PortfolioHome } from './components/landing-page/portfolio-home/portfolioHome';
 import { PortfolioCV } from './components/landing-page/portfolio-cv/portfolioCV';

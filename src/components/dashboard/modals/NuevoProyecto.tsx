@@ -1,7 +1,7 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import { Box, Button, Card, Modal, Paper, TextField, Typography } from '@mui/material';
-import { FormatAlignJustify } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { Box, Button, Card, Modal, TextField, Typography } from '@mui/material';
+// import { FormatAlignJustify } from '@mui/icons-material';
+// import { useNavigate } from 'react-router-dom';
 import { server } from '../../../utils/constants';
 
 export const NuevoProyecto = ({getProjectData}:any) => {
@@ -15,8 +15,8 @@ export const NuevoProyecto = ({getProjectData}:any) => {
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+    // const navigate = useNavigate();
+    // const [loading, setLoading] = useState(false);
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -35,7 +35,7 @@ export const NuevoProyecto = ({getProjectData}:any) => {
             return response.json()
         })
             .then((data) => {
-                setLoading(false);
+                // setLoading(false);
                 if (data[0].code) {
                     getProjectData()
                 } else {
@@ -44,6 +44,7 @@ export const NuevoProyecto = ({getProjectData}:any) => {
                 }
 
             });
+            console.dir(response)
 
         handleClose();
     };

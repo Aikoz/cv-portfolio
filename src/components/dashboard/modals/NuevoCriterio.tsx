@@ -1,16 +1,23 @@
-import React, { FormEvent, useEffect, useState, useId } from 'react';
-import { Box, Button, Card, CardContent, Chip, Collapse, FormControl, FormControlLabel, FormGroup, FormHelperText, Grid, IconButton, InputLabel, ListItem, MenuItem, Modal, OutlinedInput, Paper, Select, SelectChangeEvent, Stack, Switch, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Theme, Typography, colors, styled, tableCellClasses, useTheme } from '@mui/material';
-import { BorderColor, Delete, FormatAlignJustify, InsertEmoticon, Padding, PostAdd, WidthFull } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import dayjs, { Dayjs } from 'dayjs';
-import TagFacesIcon from '@mui/icons-material/TagFaces';
-import NotificationsIcon from '../../../assets/alarm.png';
-import NotificationsSlashIcon from '../../../assets/mute.png';
+import { FormEvent, useEffect, useState } from 'react';
+import { Box, 
+    Button, 
+    Card, 
+    CardContent, 
+    FormControl, 
+    Grid, 
+    IconButton, 
+    InputLabel, 
+    MenuItem, 
+    Modal, 
+    Paper, 
+    Select, 
+    SelectChangeEvent, 
+    Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography, styled, tableCellClasses } from '@mui/material';
+import { Delete, PostAdd } from '@mui/icons-material';
+// import dayjs from 'dayjs';
 import { server } from '../../../utils/constants'
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.white,
@@ -43,14 +50,14 @@ interface CriteriaData {
 export const NuevoCriterio = (props: any) => {
 
 
-    const {criterionData, getCriterionData, projectData, editIndex, openEditModal, setOpenEditModal} = props;
+    const { criterionData, getCriterionData, projectData, editIndex, openEditModal, setOpenEditModal } = props;
 
     const [open, setOpen] = useState(false);
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
 
 
-    const today = dayjs();
+    // const today = dayjs();
 
     // TODO: juntar totos los usestates booleanos en un array de valores
     const [proyecto, setProyecto] = useState('')
@@ -62,7 +69,7 @@ export const NuevoCriterio = (props: any) => {
     const [prioridadId, setPrioridadId] = useState(0)
     const [contador, setContador] = useState(0)
     const [criteriaData, setCriteriaData] = useState<CriteriaData[]>([]);
-    const [prioridadData, setPrioridadData] = useState([{ id_nombre: 1, name: 'Principal' },
+    const [prioridadData] = useState([{ id_nombre: 1, name: 'Principal' },
     { id_nombre: 2, name: 'Fecha' },
     { id_nombre: 3, name: 'Secundario' }])
 
@@ -75,16 +82,18 @@ export const NuevoCriterio = (props: any) => {
             setDescripcion(criterionData[editIndex].descripcion)
             setProyecto(criterionData[editIndex].nombre_proyecto)
             setProyectoId(criterionData[editIndex].id_proyecto)
-            criterionData[editIndex].listaDatos.forEach(element => {
-                const newData: CriteriaData = { key: element.id_dato_criterio, 
+            criterionData[editIndex].listaDatos.forEach((element: any) => {
+                const newData: CriteriaData = {
+                    key: element.id_dato_criterio,
                     nombreDato: element.titulo,
                     parametro: element.parametro,
                     prioridad: element.prioridad == 1 ? 'Principal' : element.prioridad == 2 ? 'Fecha' : element.prioridad == 3 ? 'Secundaria' : 'x',
-                    prioridadId: element.prioridad};
+                    prioridadId: element.prioridad
+                };
 
-                    setCriteriaData((data) => [...data, newData]);
-                });
-           
+                setCriteriaData((data) => [...data, newData]);
+            });
+
             handleOpen()
 
         }
@@ -122,7 +131,7 @@ export const NuevoCriterio = (props: any) => {
             }
 
         })
-        
+
         if (!continueVariation) {
             alert('Ingresa un dato de criterio de tipo principal para contunuar')
 
@@ -163,6 +172,8 @@ export const NuevoCriterio = (props: any) => {
 
                     }
                 });
+
+            console.dir(response)
 
             handleClose();
 
@@ -205,6 +216,7 @@ export const NuevoCriterio = (props: any) => {
 
                     }
                 });
+            console.dir(response)
 
             handleClose();
 
@@ -422,7 +434,7 @@ export const NuevoCriterio = (props: any) => {
                                                 overflow: 'hidden'
                                             }} >
 
-                                                <Box style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '15px', padding: '15px', backgroundColor:'white', borderRadius: '10px'}} >
+                                                <Box style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '15px', padding: '15px', backgroundColor: 'white', borderRadius: '10px' }} >
                                                     <Paper sx={{ minWidth: '100%' }}>
                                                         <TableContainer component={Paper} >
                                                             <Table aria-label="simple table">
@@ -436,7 +448,7 @@ export const NuevoCriterio = (props: any) => {
                                                                     </TableRow>
                                                                 </TableHead>
                                                                 <TableBody>
-                                                                    {criteriaData.map((row, index) => (
+                                                                    {criteriaData.map((row) => (
 
                                                                         <StyledTableRow
                                                                             key={row.key}

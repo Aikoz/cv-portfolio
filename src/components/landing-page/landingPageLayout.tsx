@@ -1,29 +1,19 @@
-import { useNavigate, Link, Outlet, useLocation } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { Card, Stack } from '@mui/material';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+// import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+// import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { FactCheckOutlined, NotificationsNone, SendAndArchive, SummarizeOutlined } from '@mui/icons-material';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import backgroundImage from '../../assets/fondo3.jpg';
-import TopBar from '../dashboard/topBar/topBar';
 import LandingTopBar from '../general-reusable-components/landingTopBar';
-import BrandImg from '../../assets/blackwhite.png'
 
 const drawerWidth = '20vw';
 
@@ -49,30 +39,30 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   }),
 }));
 
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-interface OutletContextType {
-  setSharedTitle: Dispatch<SetStateAction<string>>;
-}
+// interface AppBarProps extends MuiAppBarProps {
+//   open?: boolean;
+// }
+// interface OutletContextType {
+//   setSharedTitle: Dispatch<SetStateAction<string>>;
+// }
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
+// const AppBar = styled(MuiAppBar, {
+//   shouldForwardProp: (prop) => prop !== 'open',
+// })<AppBarProps>(({ theme, open }) => ({
+//   transition: theme.transitions.create(['margin', 'width'], {
+//     easing: theme.transitions.easing.sharp,
+//     duration: theme.transitions.duration.leavingScreen,
 
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth})`,
-    marginLeft: `${drawerWidth}`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
+//   }),
+//   ...(open && {
+//     width: `calc(100% - ${drawerWidth})`,
+//     marginLeft: `${drawerWidth}`,
+//     transition: theme.transitions.create(['margin', 'width'], {
+//       easing: theme.transitions.easing.easeOut,
+//       duration: theme.transitions.duration.enteringScreen,
+//     }),
+//   }),
+// }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -126,7 +116,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
   function handleDrawerClose(path: string) {
     path != '' ? window.localStorage.setItem('path', path) : console.dir('')
 
-    const direccion = window.localStorage.getItem('path')
+    // const direccion = window.localStorage.getItem('path')
 
     setOpen(false);
   };

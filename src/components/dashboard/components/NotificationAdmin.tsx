@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import Layout from "./Layout";
-import { Box, Button, Card, Grid, IconButton, Paper, Stack, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
-import { NuevoProyecto } from "../modals/NuevoProyecto";
+import { Box, Button, Grid, IconButton, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import { NuevaPlantilla } from "../modals/NuevaPlantilla";
@@ -73,6 +71,8 @@ export function NotificationAdmin() {
         }
 
       });
+      console.dir(response)
+
   }
 
   function setImage (image: any){
@@ -97,8 +97,11 @@ export function NotificationAdmin() {
 
     // Configurar el evento onload del FileReader para obtener la URL de datos
     fileReader.onload = (event) => {
-        const dataURL = event.target.result;
+      if( event.target) {
+        const dataURL = event.target.result ?? "";
         return dataURL
+      }
+        
     };
 
     // Leer el contenido del archivo como URL de datos
@@ -135,6 +138,8 @@ export function NotificationAdmin() {
         }
 
       });
+      console.dir(response)
+
   }
 
   const getCriteriaData = async () => {
@@ -165,6 +170,8 @@ export function NotificationAdmin() {
         }
 
       });
+      console.dir(response)
+
   }
 
   const onOpenEditModal = (index: any) => {
@@ -195,6 +202,7 @@ export function NotificationAdmin() {
         }
 
       });
+      console.dir(response)
 
   }
 
@@ -231,6 +239,7 @@ export function NotificationAdmin() {
         }
 
       });
+      console.dir(response)
 
   }
 
@@ -261,7 +270,9 @@ export function NotificationAdmin() {
 
         }
 
-      });
+      });      
+      console.dir(response)
+
   }
 
 

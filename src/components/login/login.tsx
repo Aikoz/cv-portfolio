@@ -1,18 +1,18 @@
 // Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Container, Typography, Card, Grid, Paper, FormControl, Box, OutlinedInput, InputAdornment, IconButton, InputLabel, Tab } from '@mui/material';
+import { TextField, Button, Container, Typography, Card, Grid, Paper, Box, OutlinedInput, InputAdornment, IconButton, InputLabel, Tab } from '@mui/material';
 import { FormEvent } from 'react'
 import { sha256 } from '../../utils/encoder-helper'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import RainCanvas from '../canvas/rain';
+
 import backgroundImage from '../../assets/fondo1.jpg';
 import { server } from '../../utils/constants';
 
 const Login = ({ setIsLoggedIn }: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
@@ -27,13 +27,13 @@ const Login = ({ setIsLoggedIn }: any) => {
 
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
+    // const formData = new FormData(event.currentTarget)
     const token = "token"
     const deviceId = "deviceid"
     const encodedpass = password as string
     const sha256Pass = await sha256(encodedpass);
 
-    setLoading(true);
+    // setLoading(true);
 
     const response = await fetch(server.dev_url +'/login', {
 
@@ -51,7 +51,7 @@ const Login = ({ setIsLoggedIn }: any) => {
 
     })
       .then((data) => {
-        setLoading(false);
+        // setLoading(false);
         if (data[0].code) {
 
           localStorage.setItem('user', JSON.stringify({ username }));
@@ -66,6 +66,7 @@ const Login = ({ setIsLoggedIn }: any) => {
 
 
       });
+      console.dir(response)
   };
 
   return (

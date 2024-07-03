@@ -23,12 +23,12 @@ const RainCanvas = () => {
 
     const drops: Drop[] = [];
 
-    function createDrop() {
-      const x = Math.random() * width;
-      const y = Math.random() * height;
-      const speed = 1 + Math.random() * 2; // Velocidad de la gota
-      drops.push({ x, y, speed });
-    }
+      // function createDrop() {
+      //   const x = Math.random() * width;
+      //   const y = Math.random() * height;
+      //   const speed = 1 + Math.random() * 2; // Velocidad de la gota
+      //   drops.push({ x, y, speed });
+      // }
 
     function updateDrops() {
       drops.forEach(drop => {

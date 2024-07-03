@@ -1,5 +1,4 @@
-import { Box, Card, Grid, Paper, Stack, Table, IconButton, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
-import Layout from "./Layout";
+import { Box, Grid, Paper, Table, IconButton, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
 import { useEffect, useState } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useOutletContext } from "react-router-dom";
@@ -63,6 +62,7 @@ export function Criterios() {
         }
 
       });
+      console.dir(response)
 
   }
 
@@ -95,6 +95,8 @@ export function Criterios() {
         }
 
       });
+      console.dir(response)
+
   }
 
   const getProjectData = async () => {
@@ -126,6 +128,7 @@ export function Criterios() {
         }
 
       });
+      console.dir(response)
   }
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 interface DataList {
     id_criterio: number;
@@ -11,8 +10,6 @@ interface DataList {
 }
 
 export function templateDynamicFormatter (text: string, dataListArray: DataList[] ) {
-    const [descripcion, setDescripcion] = useState('');
-
     
     var resultText = text
 

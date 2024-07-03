@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Chip, Grid, IconButton, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from "@mui/material";
-import { Delete, EditNote } from "@mui/icons-material";
-import { server } from "../../../utils/constants";
-import { DateFormatter } from '../../../utils/dateFormatter'
+import { Box, Grid, Stack, Typography} from "@mui/material";
+// import { Delete, EditNote } from "@mui/icons-material";
+// import { server } from "../../../utils/constants";
+// import { DateFormatter } from '../../../utils/dateFormatter'
 
-const StyledTypography = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Libre Franklin, Arial, sans-serif',
-  fontWeight: 200,
-  fontSize: '20px',
-  width: '70%',
-  color: 'lightgray'
-}));
+// const StyledTypography = styled(Typography)(({ theme }) => ({
+//   fontFamily: 'Libre Franklin, Arial, sans-serif',
+//   fontWeight: 200,
+//   fontSize: '20px',
+//   width: '70%',
+//   color: 'lightgray'
+// }));
 
 interface OutletContextType {
   setSharedTitle: (title: string) => void;
@@ -20,196 +20,196 @@ interface OutletContextType {
 export function PortfolioCV() {
 
   const { setSharedTitle } = useOutletContext<OutletContextType>();
-  const [openEditModal, setOpenEditModal] = useState(false)
-  const [editIndex, setEditIndex] = useState(false)
-  const [projectsData, setProjectsData] = useState<any[]>([]);
-  const [enviosData, setEnviosData] = useState<any[]>([]);
-  const [notificationsData, setNotificationsData] = useState<any[]>([]);
-  const [typeNoficationData, setTypeNotificationData] = useState<any[]>([]);
-  const [criteriaData, setCriteriaData] = useState<any[]>([]);
+  // const [openEditModal, setOpenEditModal] = useState(false)
+  // const [editIndex, setEditIndex] = useState(false)
+  // const [projectsData, setProjectsData] = useState<any[]>([]);
+  // const [enviosData, setEnviosData] = useState<any[]>([]);
+  // const [notificationsData, setNotificationsData] = useState<any[]>([]);
+  // const [typeNoficationData, setTypeNotificationData] = useState<any[]>([]);
+  // const [criteriaData, setCriteriaData] = useState<any[]>([]);
 
-  const onOpenEditModal = (index: any) => {
-    setEditIndex(index)
-    setOpenEditModal(true)
-  }
+  // const onOpenEditModal = (index: any) => {
+  //   setEditIndex(index)
+  //   setOpenEditModal(true)
+  // }
 
-  const deleteEnvio = async (index: any) => {
+  // const deleteEnvio = async (index: any) => {
 
-    const response = await fetch(server.dev_url + '/notifications/delete_envio', {
+  //   const response = await fetch(server.dev_url + '/notifications/delete_envio', {
 
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ idEnvio: index }),
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ idEnvio: index }),
 
-    }).then((response) => response.json())
+  //   }).then((response) => response.json())
 
-      .then((data) => {
-        console.dir(data)
-        if (data[0].code) {
-          // getEnviosData()
-        } else {
-          alert(data[0].message);
+  //     .then((data) => {
+  //       console.dir(data)
+  //       if (data[0].code) {
+  //         // getEnviosData()
+  //       } else {
+  //         alert(data[0].message);
 
-        }
+  //       }
 
-      });
+  //     });
 
-  }
-  const getTypeNotificationData = async () => {
+  // }
+  // const getTypeNotificationData = async () => {
 
 
-    const response = await fetch(server.dev_url + '/notifications/get_type_notification', {
+  //   const response = await fetch(server.dev_url + '/notifications/get_type_notification', {
 
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
 
-    }).then((response) => {
+  //   }).then((response) => {
 
-      if (!response.ok) {
-        alert("Error desconocido.");
-      }
-      return response.json()
-    })
-      .then((data) => {
+  //     if (!response.ok) {
+  //       alert("Error desconocido.");
+  //     }
+  //     return response.json()
+  //   })
+  //     .then((data) => {
 
-        if (data[0].code) {
+  //       if (data[0].code) {
 
-          setTypeNotificationData(data[0].data)
+  //         setTypeNotificationData(data[0].data)
 
-        } else {
+  //       } else {
 
-          alert(data[0].message);
+  //         alert(data[0].message);
 
-        }
+  //       }
 
-      });
-  }
+  //     });
+  // }
 
-  const getEnviosData = async () => {
-    console.dir('getting envios')
-    const response = await fetch(server.dev_url + '/notifications/get_envios', {
+  // const getEnviosData = async () => {
+  //   console.dir('getting envios')
+  //   const response = await fetch(server.dev_url + '/notifications/get_envios', {
 
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
 
-    }).then((response) => {
+  //   }).then((response) => {
 
-      console.dir(response)
+  //     console.dir(response)
 
-      if (!response.ok) {
-        alert("Error desconocido.");
-      }
-      return response.json()
-    })
-      .then((data) => {
-        console.dir(data)
-        if (data[0].code) {
+  //     if (!response.ok) {
+  //       alert("Error desconocido.");
+  //     }
+  //     return response.json()
+  //   })
+  //     .then((data) => {
+  //       console.dir(data)
+  //       if (data[0].code) {
 
-          setEnviosData(data[0].data)
+  //         setEnviosData(data[0].data)
 
-        } else {
+  //       } else {
 
-          alert(data[0].message);
+  //         alert(data[0].message);
 
-        }
+  //       }
 
-      });
-  }
+  //     });
+  // }
 
-  const getProjectData = async () => {
+  // const getProjectData = async () => {
 
 
-    const response = await fetch(server.dev_url + '/projects/get_projects', {
+  //   const response = await fetch(server.dev_url + '/projects/get_projects', {
 
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
 
-    }).then((response) => {
+  //   }).then((response) => {
 
-      if (!response.ok) {
-        alert("Error desconocido.");
-      }
-      return response.json()
-    })
-      .then((data) => {
+  //     if (!response.ok) {
+  //       alert("Error desconocido.");
+  //     }
+  //     return response.json()
+  //   })
+  //     .then((data) => {
 
 
-        if (data[0].code) {
+  //       if (data[0].code) {
 
-          setProjectsData(data[0].data)
+  //         setProjectsData(data[0].data)
 
-        } else {
+  //       } else {
 
-          alert(data[0].message);
+  //         alert(data[0].message);
 
-        }
+  //       }
 
-      });
-  }
+  //     });
+  // }
 
-  const getCriteriaData = async () => {
+  // const getCriteriaData = async () => {
 
 
-    const response = await fetch(server.dev_url + '/notifications/get_criterios', {
+  //   const response = await fetch(server.dev_url + '/notifications/get_criterios', {
 
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
 
-    }).then((response) => {
+  //   }).then((response) => {
 
-      if (!response.ok) {
+  //     if (!response.ok) {
 
-        alert("Error desconocido.");
+  //       alert("Error desconocido.");
 
-      }
-      return response.json()
-    })
-      .then((data) => {
+  //     }
+  //     return response.json()
+  //   })
+  //     .then((data) => {
 
-        console.dir('criterios')
-        console.dir(data)
-        if (data[0].code) {
+  //       console.dir('criterios')
+  //       console.dir(data)
+  //       if (data[0].code) {
 
-          setCriteriaData(data[0].data)
+  //         setCriteriaData(data[0].data)
 
-        } else {
+  //       } else {
 
-          alert(data[0].message);
+  //         alert(data[0].message);
 
-        }
+  //       }
 
-      });
-  }
+  //     });
+  // }
 
-  const getNotificationData = async () => {
+  // const getNotificationData = async () => {
 
-    const response = await fetch(server.dev_url + '/notifications/get_notifications', {
+  //   const response = await fetch(server.dev_url + '/notifications/get_notifications', {
 
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
 
-    }).then((response) => {
+  //   }).then((response) => {
 
-      if (!response.ok) {
-        alert("Error desconocido.");
-      }
-      return response.json()
-    })
-      .then((data) => {
-        console.dir(data);
+  //     if (!response.ok) {
+  //       alert("Error desconocido.");
+  //     }
+  //     return response.json()
+  //   })
+  //     .then((data) => {
+  //       console.dir(data);
 
-        if (data[0].code) {
+  //       if (data[0].code) {
 
-          setNotificationsData(data[0].data);
+  //         setNotificationsData(data[0].data);
 
-        } else {
+  //       } else {
 
-          alert(data[0].message);
+  //         alert(data[0].message);
 
-        }
+  //       }
 
-      });
-  }
+  //     });
+  // }
 
   useEffect(() => {
     // getEnviosData()

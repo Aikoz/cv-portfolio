@@ -1,7 +1,8 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import { Box, Button, Card, CardContent, CardMedia, Chip, Collapse, FormControl, FormControlLabel, FormHelperText, Grid, InputLabel, MenuItem, Modal, OutlinedInput, Paper, Select, SelectChangeEvent, Stack, Switch, Tab, TextField, Theme, Typography, styled, useTheme } from '@mui/material';
-import { FormatAlignJustify } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { FormEvent, useEffect, useState } from 'react';
+import { Box, Button, Card, CardContent, Collapse, FormControl, FormControlLabel, FormHelperText, Grid, 
+    InputLabel, MenuItem, Modal, Select, SelectChangeEvent, Switch, Tab, TextField, Typography, styled } from '@mui/material';
+// import { FormatAlignJustify } from '@mui/icons-material';
+// import { useNavigate } from 'react-router-dom';
 import { server } from '../../../utils/constants';
 import { DateTimePicker } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';
@@ -10,17 +11,17 @@ import NotificationsSlashIcon from '../../../assets/mute.png';
 import { DateFormatterDateType } from '../../../utils/dateFormatter';
 import { NotificationPreview } from '../components/reusable-components/NotificationPreview';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
 
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
+// const MenuProps = {
+//     PaperProps: {
+//         style: {
+//             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//             width: 250,
+//         },
+//     },
+// };
 
 interface ChipData {
     key: number;
@@ -70,14 +71,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
 }));
 
-function getStyles(name: string, personName: readonly string[], theme: Theme) {
-    return {
-        fontWeight:
-            personName.indexOf(name) === -1
-                ? theme.typography.fontWeightRegular
-                : theme.typography.fontWeightMedium,
-    };
-}
+// function getStyles(name: string, personName: readonly string[], theme: Theme) {
+//     return {
+//         fontWeight:
+//             personName.indexOf(name) === -1
+//                 ? theme.typography.fontWeightRegular
+//                 : theme.typography.fontWeightMedium,
+//     };
+// }
 
 export const NuevoEnvio = (props: any) => {
     const { getEnviosData, projectData, enviosData, editIndex, openEditModal, setOpenEditModal, plantillaData, criteriaData, setCriteriaData, typeNoficationData, getCriteriaData } = props;
@@ -108,11 +109,11 @@ export const NuevoEnvio = (props: any) => {
     const [typeNotifictionId, setTypeNotificationId] = useState(0);
     const [chipData, setChipData] = useState<ChipData[]>([]);
 
-    const [checkList, setCheckList] = useState(() => { Array(9).fill(null) })
+    // const [checkList, setCheckList] = useState(() => { Array(9).fill(null) })
 
-    const theme = useTheme();
-    const [personName, setPersonName] = React.useState<string[]>([]);
-    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    // const theme = useTheme();
+    // const [personName, setPersonName] = React.useState<string[]>([]);
+    const [previewUrl] = useState<string | null>(null);
 
 
 
@@ -131,7 +132,7 @@ export const NuevoEnvio = (props: any) => {
             setRutaAccion(enviosData[editIndex].action_url)
             setFechaInicio(DateFormatterDateType(enviosData[editIndex].fecha_inicio))
             setFechaFin(DateFormatterDateType(enviosData[editIndex].fecha_fin))
-            let tipoNotif = enviosData[editIndex].id_tipo_notificacion;
+            // let tipoNotif = enviosData[editIndex].id_tipo_notificacion;
             setLunes(enviosData[editIndex].dia_lunes == 1 ? true : false)
             setMartes(enviosData[editIndex].dia_martes == 1 ? true : false)
             setMiercoles(enviosData[editIndex].dia_miercoles == 1 ? true : false)
@@ -148,7 +149,7 @@ export const NuevoEnvio = (props: any) => {
                     if (label) {
                         const newChip: ChipData = { key: itemKey, label };
                         setChipData((chips) => [...chips, newChip]);
-                        setCriteriaData((options: any) => criteriaData.filter((criteriaData: any) => criteriaData.titulo !== label));
+                        setCriteriaData(() => criteriaData.filter((criteriaData: any) => criteriaData.titulo !== label));
                     }
                 });
             }
@@ -184,8 +185,8 @@ export const NuevoEnvio = (props: any) => {
         setOpen(false);
     }
 
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+    // const navigate = useNavigate();
+    // const [loading, setLoading] = useState(false);
 
     const setImage = (image: any) => {
 
@@ -210,9 +211,12 @@ export const NuevoEnvio = (props: any) => {
 
         // Configurar el evento onload del FileReader para obtener la URL de datos
         fileReader.onload = (event) => {
-            const dataURL = event.target.result;
-            console.log('DataURL:', dataURL);
-            setPreviewUrl(dataURL)
+            if(event.target){
+                const dataURL = event.target.result;
+                console.log('DataURL:', dataURL);
+                // setPreviewUrl(dataURL != null ? dataURL : previewUrl) 
+            }
+
         };
 
         // Leer el contenido del archivo como URL de datos
@@ -261,7 +265,7 @@ export const NuevoEnvio = (props: any) => {
             })
                 .then((data) => {
                     console.dir(data)
-                    setLoading(false);
+                    // setLoading(false);
                     if (data[0].code == 1) {
                         getEnviosData()
 
@@ -269,7 +273,7 @@ export const NuevoEnvio = (props: any) => {
                         alert(data[0].message);
                     }
                 });
-
+            console.dir(response)
             handleClose();
 
         } else {
@@ -313,7 +317,7 @@ export const NuevoEnvio = (props: any) => {
                 return response.json()
             })
                 .then((data) => {
-                    setLoading(false);
+                    // setLoading(false);
                     if (data[0].code == 1) {
                         getEnviosData()
 
@@ -323,6 +327,7 @@ export const NuevoEnvio = (props: any) => {
 
                     }
                 });
+                console.dir(response)
 
             handleClose();
 
@@ -363,24 +368,24 @@ export const NuevoEnvio = (props: any) => {
 
 
 
-    const handleDelete = (chipToDelete: ChipData) => () => {
-        setChipData((chips) => chips.filter((chip) => chip.key !== chipToDelete.key));
+    // const handleDelete = (chipToDelete: ChipData) => () => {
+    //     setChipData((chips) => chips.filter((chip) => chip.key !== chipToDelete.key));
 
-        const newAvailableName: any = { id_criterio: chipToDelete.key, titulo: chipToDelete.label };
+    //     const newAvailableName: any = { id_criterio: chipToDelete.key, titulo: chipToDelete.label };
 
-        setCriteriaData((criteriaData: any) => [...criteriaData, newAvailableName]);
-    };
+    //     setCriteriaData((criteriaData: any) => [...criteriaData, newAvailableName]);
+    // };
 
-    const handleChipSelection = (event: SelectChangeEvent<string>, key: any) => {
-        const label = event.target.value;
-        const itemKey = key.key.slice(2);
-        console.dir(itemKey)
-        if (label) {
-            const newChip: ChipData = { key: itemKey, label };
-            setChipData((chips) => [...chips, newChip]);
-            setCriteriaData((options: any) => criteriaData.filter((criteriaData: any) => criteriaData.titulo !== label));
-        }
-    };
+    // const handleChipSelection = (event: SelectChangeEvent<string>, key: any) => {
+    //     const label = event.target.value;
+    //     const itemKey = key.key.slice(2);
+    //     console.dir(itemKey)
+    //     if (label) {
+    //         const newChip: ChipData = { key: itemKey, label };
+    //         setChipData((chips) => [...chips, newChip]);
+    //         setCriteriaData((options: any) => criteriaData.filter((criteriaData: any) => criteriaData.titulo !== label));
+    //     }
+    // };
 
 
 

@@ -1,12 +1,8 @@
-import { Box, Card, Chip, Divider, Grid, Stack, Typography } from "@mui/material";
-import { Children } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Box, Card, Grid, Stack, Typography } from "@mui/material";
 
-interface Props {
-  children: React.ReactNode
-}
+import {  Outlet } from "react-router-dom";
 
-export const Layout = ({ titulo, Props}: any) => {
+export const Layout = ({ titulo}: any) => {
 
   return (
  
