@@ -6,7 +6,7 @@ import { FormEvent } from 'react'
 import { sha256 } from '../../utils/encoder-helper'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-import backgroundImage from '../../assets/fondo1.jpg';
+import backgroundImage from '../../assets/fondo3.jpg';
 import { server } from '../../utils/constants';
 
 const Login = ({ setIsLoggedIn }: any) => {

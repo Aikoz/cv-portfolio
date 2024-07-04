@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Box, Grid, Stack, Typography} from "@mui/material";
 // import { Delete, EditNote } from "@mui/icons-material";
@@ -17,7 +17,7 @@ interface OutletContextType {
   setSharedTitle: (title: string) => void;
 }
 
-export function PortfolioHome() {
+export function PortfolioCV() {
 
   const { setSharedTitle } = useOutletContext<OutletContextType>();
   // const [openEditModal, setOpenEditModal] = useState(false)
@@ -226,7 +226,7 @@ export function PortfolioHome() {
   return (
 
     <Grid container direction='row' spacing={{ xl: 2, md: 5 }}>
-      <Grid item md={12} xl={10}>
+      <Grid item spacing={2} md={12} xl={10}>
         <Stack>
           <Typography
             sx={{
@@ -1097,7 +1097,7 @@ export function PortfolioHome() {
         </Stack>
       </Grid>
 
-      <Grid item md={12} xl={2}>
+      <Grid item spacing={2} md={12} xl={2}>
         <Stack>
 
           {/* Datos de contacto */}

@@ -1,6 +1,6 @@
 // App.js
-import { useState, useEffect, ReactNode  } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate  } from 'react-router-dom';
+import { useState, useEffect, ReactNode } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Login from './components/login/login';
 import './App.css'
 import { LandingPageLayout } from './components/landing-page/landingPageLayout';
@@ -13,7 +13,8 @@ interface RememberLastVisitedPathProps {
   isLoggedIn: any;
 }
 // Componente para manejar la lógica de recordar la última URL visitada
-const RememberLastVisitedPath: React.FC<RememberLastVisitedPathProps> = ({ children, isLoggedIn}) => {  const location = useLocation();
+const RememberLastVisitedPath: React.FC<RememberLastVisitedPathProps> = ({ children, isLoggedIn }) => {
+  const location = useLocation();
 
   useEffect(() => {
     if (location.pathname !== '/') {
@@ -24,7 +25,7 @@ const RememberLastVisitedPath: React.FC<RememberLastVisitedPathProps> = ({ child
   const navigate = useNavigate();
 
   useEffect(() => {
-    
+
     // Al cargar la aplicación, redirigir a la URL guardada si existe
     const lastVisitedPath = localStorage.getItem('lastVisitedPath');
     if (isLoggedIn && lastVisitedPath && lastVisitedPath !== '/') {
@@ -50,19 +51,14 @@ export function App() {
       <Router>
         <RememberLastVisitedPath isLoggedIn={isLoggedIn}>
           <Routes>
-            <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/landingPage/"  element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle}/> : <Navigate to="/" />} >
-            <Route index path="portfolioHome" element={<PortfolioHome  />} />
-            <Route index path="resume" element={<PortfolioCV  />} />
+            <Route path="/cv-portfolio/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} /> : <Navigate to="/" />} >
+              <Route index path="portfolioHome" element={<PortfolioHome />} />
+              <Route index path="resume" element={<PortfolioCV />} />
 
 
             </Route>
-            {/* <Route path="/dashboard/" element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle}/> : <Navigate to="/" />}>
-              <Route index path="homePage" element={<HomePage  />} />
-              <Route path="notificationAdmin" element={<NotificationAdmin   />} />
-              <Route path="proyectos" element={<Proyectos   />} />
-              <Route path="criterios" element={<Criterios   />} />
-            </Route> */}
+
             <Route
               path="*"
               element={
