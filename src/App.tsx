@@ -1,6 +1,6 @@
 // App.js
 import { useState, useEffect, ReactNode } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import {  Routes, Route, Navigate, useLocation, useNavigate, HashRouter } from 'react-router-dom';
 import Login from './components/login/login';
 import './App.css'
 import { LandingPageLayout } from './components/landing-page/landingPageLayout';
@@ -48,10 +48,13 @@ export function App() {
 
   return (
     <div className='Home'>
-      <Router>
+      {/* <Router basename={import.meta.env.BASE_URL}> */}
+      <HashRouter>
+
+      
         <RememberLastVisitedPath isLoggedIn={isLoggedIn}>
           <Routes>
-            <Route path="/cv-portfolio/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} /> : <Navigate to="/" />} >
               <Route index path="portfolioHome" element={<PortfolioHome />} />
               <Route index path="resume" element={<PortfolioCV />} />
@@ -69,7 +72,8 @@ export function App() {
             />
           </Routes>
         </RememberLastVisitedPath>
-      </Router>
+        </HashRouter>
+      {/* </Router> */}
     </div>
   );
 }
