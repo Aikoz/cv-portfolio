@@ -23,19 +23,20 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   flexGrow: 1,
   padding: theme.spacing(3),
   paddingTop: '145px',
-  width: `97% `,
+  width: `97.5%`,
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
+    duration: '0.3s',
   }),
   marginLeft: 0,
   ...(open && {
+   
+    width: `calc(97.5% - ${drawerWidth})`,
+    marginLeft: `calc(${drawerWidth} + 0.5vw)`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
+      duration:'0.4s',
     }),
-    width: `calc(96.5% - ${drawerWidth})`,
-    marginLeft: `calc(${drawerWidth} + 0.5vw)`,
   }),
 }));
 
@@ -127,11 +128,13 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
 
   return (
     <Box sx={{
-      width: '100%',
-      height: '100%', // O ajusta la altura según tus necesidades
+      width: '100vw',
+      height: '100vh', // O ajusta la altura según tus necesidades
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      marginLeft: '0px',
+      overflow: 'scroll'
     }}>
       
       <LandingTopBar handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} open={open} closeSession={handleLogout} sharedTitle={sharedTitle}></LandingTopBar>
@@ -140,6 +143,8 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
       <Drawer
         sx={{
           width: drawerWidth,
+          zIndex: 1299,
+
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
@@ -168,7 +173,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
           <Box sx={{
             display: 'flex', alignItems: 'center', justifyItems: 'center', width: '100%'
           }}>
-            <IconButton onClick={() => (handleDrawerClose(''))} style={{ color: "white", width: '90px', height: '90px' }}>
+            <IconButton onClick={() => (handleDrawerClose(''))} style={{ color: "white", width: '45px', height: '45px' }}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
             <Typography
@@ -176,9 +181,9 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
               // noWrap
               sx={{
                 fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '600',
-                fontSize: '40px',
-                width: '70%',
+                fontWeight: '800',
+                fontSize: '20px',
+                width: '100%',
                 // backgroundColor:'green',
                 textAlign: 'center'
               }}
@@ -246,7 +251,8 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
         {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
 
         <Card variant="outlined" sx={{
-          maxWidth: '100vw', minHeight: '84.25vh', backdropFilter: 'blur(16px) saturate(180%)',
+          maxWidth: '100vw', minHeight: '84.25vh', 
+          backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
           backgroundColor: 'rgba(9, 9, 9, 0.65)',
           //backgroundColor: 'rgba(9, 9, 9, 0.65)',
@@ -264,13 +270,12 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
           <Box sx={{ p: 0 }}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Typography
-              variant="h6"
-              // noWrap
+            
               sx={{
                 fontFamily: 'Libre Franklin, Arial, sans-serif',
                 fontWeight: '600',
                 fontSize: '40px',
-                width: '70%',
+                width: '100%',
                 // backgroundColor:'green',
                 // textAlign: 'center'
               }}

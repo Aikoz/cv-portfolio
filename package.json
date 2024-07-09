@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://www.sevenpercentmore.online/#",
-
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,13 +11,12 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.16",
-    "@mui/material": "^5.15.20",
+    "@mui/material": "^5.16.0",
     "@mui/x-date-pickers": "^7.4.0",
     "@types/react-router-dom": "^5.3.3",
     "dayjs": "^1.11.11",

@@ -1,11 +1,14 @@
 // App.js
 import { useState, useEffect, ReactNode } from 'react';
-import {  Routes, Route, Navigate, useLocation, useNavigate, HashRouter } from 'react-router-dom';
+import {  Routes, Route, Navigate, useLocation, useNavigate,  } from 'react-router-dom';
+import {  BrowserRouter as Router } from 'react-router-dom';
+// import {  HashRouter } from 'react-router-dom';
 import Login from './components/login/login';
 import './App.css'
 import { LandingPageLayout } from './components/landing-page/landingPageLayout';
 import { PortfolioHome } from './components/landing-page/portfolio-home/portfolioHome';
 import { PortfolioCV } from './components/landing-page/portfolio-cv/portfolioCV';
+import { Box } from '@mui/material';
 
 
 interface RememberLastVisitedPathProps {
@@ -37,6 +40,9 @@ const RememberLastVisitedPath: React.FC<RememberLastVisitedPathProps> = ({ child
 };
 
 export function App() {
+  const open = true; // o false, dependiendo de tu lógica
+  const drawerWidth = '240px'; // ejemplo, ajusta según tu diseño
+
   const [sharedTitle, setSharedTitle] = useState('');
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -47,9 +53,9 @@ export function App() {
 
 
   return (
-    <div className='Home'>
-      {/* <Router basename={import.meta.env.BASE_URL}> */}
-      <HashRouter>
+    <Box >
+      <Router basename={import.meta.env.BASE_URL}>
+      {/* <HashRouter> */}
 
       
         <RememberLastVisitedPath isLoggedIn={isLoggedIn}>
@@ -72,8 +78,8 @@ export function App() {
             />
           </Routes>
         </RememberLastVisitedPath>
-        </HashRouter>
-      {/* </Router> */}
-    </div>
+        {/* </HashRouter> */}
+      </Router>
+    </Box>
   );
 }

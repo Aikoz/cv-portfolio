@@ -17,13 +17,11 @@
   
   body {
     display: flex;
-    justify-content: center;
-    min-width: 100vh;
+    justify-content: left;
+    width: 100vw;
     min-height: 100vh;
   }
-  .TextField {
-    background-color: aliceblue;
-  }
+ 
   * {
     padding: 0;
     margin: 0;
