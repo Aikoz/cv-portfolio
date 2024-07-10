@@ -3,19 +3,21 @@ import { css, keyframes } from '@emotion/react';
 import { Typography } from '@mui/material';
 
 const glitch = keyframes`
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, -2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-2px, 2px); }
-  80% { transform: translate(2px, 2px); }
-  100% { transform: translate(0); }
+  0% { transform: translate(-10px); }
+  // 20% { transform: translate(-2px, 0px); }
+  50% { transform: translate(10px, 0px); }
+  // 60% { transform: translate(-2px, 0px); }
+  // 80% { transform: translate(20px, 0px); }
+  100% { transform: translate(-10px); }
 `;
 
 const glitchStyles = css`
   position: relative;
   color: white;
-  font-size: 3em;
-  font-weight: 600;
+  font-size: 1.1em;
+  font-weight: 100;
+  font-family: 'Libre Franklin', Arial, sans-serif;
+  text-decoration: underline;
   animation: ${glitch} 2s infinite;
 
   &::before,

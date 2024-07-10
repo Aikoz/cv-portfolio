@@ -217,7 +217,7 @@ export function PortfolioCV() {
     // getNotificationData()
     // getTypeNotificationData()
     // getCriteriaData()
-    setSharedTitle('Resume');
+    setSharedTitle('Resumé');
 
   }, [])
 

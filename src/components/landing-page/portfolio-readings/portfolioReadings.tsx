@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Stack, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-import profileImg from "../../../assets/profileImg.jpg"
-import frontPage from "../../../assets/fondo1.jpg"
+// import profileImg from "../../../assets/profileImg.jpg"
+// import frontPage from "../../../assets/fondo1.jpg"
 import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
 import instagram from "../../../assets/Instagram.png"
@@ -43,7 +43,7 @@ export function PortfolioHome() {
 
 
   useEffect(() => {
-    setSharedTitle('');
+    setSharedTitle('My readings');
 
   }, [])
 
@@ -55,6 +55,7 @@ export function PortfolioHome() {
       <Grid item md={12} xl={12}>
         <Stack spacing={4} padding={'6vw 10vw 10vw 25vw'}>
 
+        
           <GlitchTypography text={'Hi, I\'m Luis Florencio'}>
 
           </GlitchTypography>

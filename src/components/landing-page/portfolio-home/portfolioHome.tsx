@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Stack, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-import profileImg from "../../../assets/profileImg.jpg"
-import frontPage from "../../../assets/fondo1.jpg"
+// import profileImg from "../../../assets/profileImg.jpg"
+// import frontPage from "../../../assets/fondo1.jpg"
 import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
 import instagram from "../../../assets/Instagram.png"
 import github from "../../../assets/github.png"
 import linkedIn from "../../../assets/LinkedIn.png"
 import academia from "../../../assets/academia.png"
+import CyberpunkTypography from "../../../utils/glitchLetters";
 // import { Delete, EditNote } from "@mui/icons-material";
 // import { server } from "../../../utils/constants";
 // import { DateFormatter } from '../../../utils/dateFormatter'
@@ -23,8 +24,8 @@ function SocialMediaIcon( {link, image}: any) {
     >
       <img
         style={{ borderRadius: '10px', margin: '20px' }}
-        height="50"
-        width="50"
+        height="30"
+        width="30"
         src={image}
         alt="social media image"
       />
@@ -58,18 +59,18 @@ export function PortfolioHome() {
         <Box sx={{width:'10px', height: '100%', backgroundColor:'rbg(225,225,225,0,5)'}}>
 
         </Box>
-        
+
       </Grid>
       <Grid item md={11} xl={11}>
         <Stack spacing={4} padding={'6vw 10vw 10vw 20vw'}>
+        {/* <div style={{ position: 'relative', margin: '50px' }}> */}
+      <CyberpunkTypography text={'Hi, I\'m Luis Florencio'} />
+    {/* </div> */}
 
-          <GlitchTypography text={'Hi, I\'m Luis Florencio'}>
 
-          </GlitchTypography>
+          <Card sx={{ width: '450px', borderRadius: '25px', backgroundColor: 'rgb(255, 255, 255,0.2)', overflow: 'hidden' }}>
 
-          <Card sx={{ width: '580px', borderRadius: '25px', backgroundColor: 'rgb(255, 255, 255,0.2)', overflow: 'hidden' }}>
-
-            <CardActionArea sx={{ width: '580px', 
+            <CardActionArea sx={{ width: '450px', 
               borderRadius: '25px', 
               // border: '1px solid ', 
               overflow: 'hidden' }}>
@@ -153,27 +154,15 @@ export function PortfolioHome() {
             I know it’s not always possible, but whenever it is, I make sure to take advantage of it.
           </Typography>
 
-          <Box sx={{ flexGrow: 1, marginLeft: '0vw', width: '97.4vw', transition: 'width 0.2s ease, margin 0.2s ease' }}>
-            <Typography
-              sx={{
-                fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '200',
-                fontSize: '20px',
-                width: '100%',
-                color: 'lightgray',
-              }}
-            >
+        
               <Link
                 to="/landingPage/resume/"
                 style={{ textDecoration: 'none', color: 'lightgray' }}
               >
-                <Box component="span" sx={{ textDecoration: 'underline', fontWeight: '200', fontSize: '25px', color: 'lightgray' }}>
-                  See more about me
-                </Box>
+                <GlitchTypography text={'See more about me →'}/>
               </Link>
-              →
-            </Typography>
-          </Box>
+            
+          
 
           {/* <Box sx={{ flexGrow: 1, marginLeft: '0vw', width: '97.4vw', transition: 'width 0.2s ease, margin 0.2s ease' }}>
             <Typography
