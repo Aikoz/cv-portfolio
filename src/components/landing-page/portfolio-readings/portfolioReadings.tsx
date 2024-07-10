@@ -52,16 +52,8 @@ export function PortfolioHome() {
   return (
 
     <Grid container direction='row' spacing={{ xl: 2, md: 5 }}>
-      
-      <Grid item md={1} xl={1}>
-
-        <Box sx={{width:'10px', height: '100%', backgroundColor:'rbg(225,225,225,0,5)'}}>
-
-        </Box>
-        
-      </Grid>
-      <Grid item md={11} xl={11}>
-        <Stack spacing={4} padding={'6vw 10vw 10vw 20vw'}>
+      <Grid item md={12} xl={12}>
+        <Stack spacing={4} padding={'6vw 10vw 10vw 25vw'}>
 
           <GlitchTypography text={'Hi, I\'m Luis Florencio'}>
 

@@ -12,7 +12,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import backgroundImage from '../../assets/fondo3.jpg';
+import backgroundImage from '../../assets/fondo2.jpg';
 import LandingTopBar from '../general-reusable-components/landingTopBar';
 
 const drawerWidth = '20vw';

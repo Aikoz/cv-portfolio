@@ -14,8 +14,8 @@ const glitch = keyframes`
 const glitchStyles = css`
   position: relative;
   color: white;
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 3em;
+  font-weight: 600;
   animation: ${glitch} 2s infinite;
 
   &::before,
