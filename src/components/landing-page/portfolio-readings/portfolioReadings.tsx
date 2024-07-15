@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Box, Card, CardActionArea, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -11,23 +11,41 @@ import instagram from "../../../assets/Instagram.png"
 import github from "../../../assets/github.png"
 import linkedIn from "../../../assets/LinkedIn.png"
 import academia from "../../../assets/academia.png"
+import CyberpunkTypography from "../../../utils/glitchLetters";
+import styled from "styled-components";
+import Sidebar from "../../../utils/sideBar";
 // import { Delete, EditNote } from "@mui/icons-material";
 // import { server } from "../../../utils/constants";
 // import { DateFormatter } from '../../../utils/dateFormatter'
 
-function SocialMediaIcon( {link, image}: any) {
+const Container = styled.div`
+  display: flex;
+  margin-left: 220px;
+  padding: 20px;
+`;
+
+const Article = styled.div`
+  margin-bottom: 50px;
+`;
+
+function SocialMediaIcon({ link, image }: any) {
   return (
     <Link
       to={link}
       target="_blank"
     >
+      <Stack direction={'row'}>
       <img
-        style={{ borderRadius: '10px', margin: '20px' }}
+        style={{ borderRadius: '10px', margin: '-15px 20px 20px 0px' }}
         height="50"
         width="50"
         src={image}
         alt="social media image"
       />
+      <CyberpunkTypography text={'Academia'} />
+
+      </Stack>
+
     </Link>
   )
 }
@@ -36,7 +54,7 @@ interface OutletContextType {
   setSharedTitle: (title: string) => void;
 }
 
-export function PortfolioHome() {
+export function PortfolioReadings() {
 
   const { setSharedTitle } = useOutletContext<OutletContextType>();
 
@@ -46,153 +64,75 @@ export function PortfolioHome() {
     setSharedTitle('My readings');
 
   }, [])
+  const articles = [
+    { title: 'Sistema de detección de no estacionalidad en datos temporales',
+      link: 'https://www.academia.edu/35108805/Sistema_de_detecci%C3%B3n_de_no_estacionalidad_en_datos_temporales',
+      content: 'Los datos temporales o series de tiempo son aquellos que son registrados en forma periódica derivados del estudio de algún fenómeno de interés, en diferentes dominios como pueden ser el médico, financiero, industrial, por mencionar algunos. El análisis de este tipo de datos es importante debido a que con base en dicho análisis se pueden tomar decisiones para prevenir o disminuir los efectos de la ocurrencia del fenómeno estudiado. Existen diferentes métodos de análisis de este tipo de datos pero...' },
+    { title: 'Minería de datos para mejorar la construcción de sistemas tecnológicos', 
+      link: 'https://www.academia.edu/35054748/Miner%C3%ADa_de_datos_para_mejorar_la_construcci%C3%B3n_de_sistemas_tecnol%C3%B3gicos',
+      content: 'La minería de datos es el proceso de descubrir conocimiento interesante a partir del análisis de grandes cantidades de información generalmente almacenadas en bases de datos. Existen desarrollos de sistemas tecnológicos enfocados al estudio de algún fenómeno de interés, los cuales se encargan de capturar información en abundancia pero muchas veces se desconoce si dicha información es de importancia para el estudio de dicho fenómeno, la información capturada por dichos sistemas generalmente...' },
+  ];
 
+  const articleRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const scrollToArticle = (index: number) => {
+    if (articleRefs.current[index]) {
+      articleRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
 
   return (
 
-    <Grid container direction='row' spacing={{ xl: 2, md: 5 }}>
-      <Grid item md={12} xl={12}>
-        <Stack spacing={4} padding={'6vw 10vw 10vw 25vw'}>
+    <Grid container direction='row' spacing={{ xl: 2, md: 2 }}>
+      <Grid item md={2} xl={2} >
 
-        
-          <GlitchTypography text={'Hi, I\'m Luis Florencio'}>
+      </Grid>
+      <Grid item md={10} xl={10}>
+        <Stack spacing={1} padding={'6vw 10vw 10vw 0vw'}>
+        <SocialMediaIcon link="https://independent.academia.edu/JLFO" image={academia} />
 
-          </GlitchTypography>
+          <Container>
 
-          <Card sx={{ width: '580px', borderRadius: '25px', backgroundColor: 'rgb(255, 255, 255,0.2)', overflow: 'hidden' }}>
+            <div>
+              {articles.map((article, index) => (
+                <Link to={article.link}
+                target="_blank">
+                <Article key={index} ref={(el) => (articleRefs.current[index] = el)}>
+                  <CyberpunkTypography text={'_.    -'} />
+                  <Typography
+                    sx={{
+                      fontFamily: 'Libre Franklin, Arial, sans-serif',
+                      fontWeight: '400',
+                      fontSize: '30px',
+                      width: '100%',
+                      mt: 2,
+                      color: 'lightgray',
+                    }} >{article.title}</Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: 'Libre Franklin, Arial, sans-serif',
+                      fontWeight: '200',
+                      fontSize: '15px',
+                      width: '100%',
+                      color: 'lightgray',
+                    }} >{article.content}</Typography>
 
-            <CardActionArea sx={{ width: '580px', 
-              borderRadius: '25px', 
-              // border: '1px solid ', 
-              overflow: 'hidden' }}>
-              {/* <CardMedia
-                component="img"
-                height="130"
-                image={frontPage}
-                alt="front image"
-                
-              /> */}
-              <Stack direction={'row'} alignItems={'bottom'} alignContent={'end'}>
-                {/* <Box sx={{ marginTop: "-100px",
-                marginLeft:'15px', 
-                marginBottom:'15px', 
-                borderRadius: '195px', 
-                backgroundColor: 'rgb(255, 255, 255,0.3)', 
-                padding: '4px', 
-                width: '190px',
-                height: '190px' }}>
-
-                  <img
-                    style={{ borderRadius: '195px',
-                      
-                     }}
-                    height="190px"
-                    width="190px"
-                    src={profileImg}
-                    alt="front image"
-                  />
+                </Article>
+                </Link>
+              ))}
+            </div>
+          </Container>
 
 
 
-                </Box> */}
 
-                <SocialMediaIcon link= "https://www.linkedin.com/in/aikoz" image={linkedIn}/>
-                <SocialMediaIcon link= "https://github.com/Aikoz" image={github}/>
-                <SocialMediaIcon link= "https://apps.apple.com/no/developer/ciudad-maderas/id1511022961" image={apple}/>
-                <SocialMediaIcon link= "https://www.instagram.com/aikoz/" image={instagram}/>
-                <SocialMediaIcon link= "https://www.facebook.com/jlfo.aikoz/" image={facebook}/>
-                <SocialMediaIcon link= "https://independent.academia.edu/JLFO" image={academia}/>
-                {/* https://www.academia.edu/35108805/Sistema_de_detecci%C3%B3n_de_no_estacionalidad_en_datos_temporales */}
-                
-                
-                
-
-                
-
-              </Stack>
-            </CardActionArea>
-
-          </Card>
-
-          <Typography
-            sx={{
-              fontFamily: 'Libre Franklin, Arial, sans-serif',
-              fontWeight: '200',
-              fontSize: '20px',
-              width: '100%',
-              color: 'lightgray'
-              // backgroundColor:'green',
-              // textAlign: 'center'
-            }}
-          >
-            Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
-          </Typography>
-
-          <Typography
-            sx={{
-              fontFamily: 'Libre Franklin, Arial, sans-serif',
-              fontWeight: '200',
-              fontSize: '20px',
-              width: '100%',
-              color: 'lightgray'
-              // backgroundColor:'green',
-              // textAlign: 'center'
-            }}
-          >
-            My main focus is to building clean, simple and user friendly interfaces,
-            to bring aplications to the users that they could use as tools in their everyday lives.
-            I prefer to provide users with all the information on how to use an app through intuitive design rather than written instructions.
-            I know it’s not always possible, but whenever it is, I make sure to take advantage of it.
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, marginLeft: '0vw', width: '97.4vw', transition: 'width 0.2s ease, margin 0.2s ease' }}>
-            <Typography
-              sx={{
-                fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '200',
-                fontSize: '20px',
-                width: '100%',
-                color: 'lightgray',
-              }}
-            >
-              <Link
-                to="/landingPage/resume/"
+          <Link
+                to="/landingPage/portfolioProjects/"
                 style={{ textDecoration: 'none', color: 'lightgray' }}
               >
-                <Box component="span" sx={{ textDecoration: 'underline', fontWeight: '200', fontSize: '25px', color: 'lightgray' }}>
-                  See more about me
-                </Box>
+                <GlitchTypography text={'See more about me →'}/>
               </Link>
-              →
-            </Typography>
-          </Box>
-
-          {/* <Box sx={{ flexGrow: 1, marginLeft: '0vw', width: '97.4vw', transition: 'width 0.2s ease, margin 0.2s ease' }}>
-            <Typography
-              sx={{
-                fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '200',
-                fontSize: '20px',
-                width: '100%',
-                color: 'lightgray',
-              }}
-            >
-              <Link
-                to="/landingPage/resume/"
-                style={{ textDecoration: 'none', color: 'lightgray' }}
-              >
-                <Box component="span" sx={{ textDecoration: 'underline', fontWeight: '200', fontSize: '25px', color: 'lightgray' }}>
-                  My experience
-                </Box>
-              </Link>
-              →
-            </Typography>
-          </Box> */}
-
-
-
-
 
         </Stack>
       </Grid>

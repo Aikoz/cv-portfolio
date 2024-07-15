@@ -16,7 +16,7 @@ import CyberpunkTypography from "../../../utils/glitchLetters";
 // import { server } from "../../../utils/constants";
 // import { DateFormatter } from '../../../utils/dateFormatter'
 
-function SocialMediaIcon( {link, image}: any) {
+function SocialMediaIcon({ link, image }: any) {
   return (
     <Link
       to={link}
@@ -53,27 +53,29 @@ export function PortfolioHome() {
   return (
 
     <Grid container direction='row' spacing={{ xl: 2, md: 5 }}>
-      
+
       <Grid item md={1} xl={1}>
 
-        <Box sx={{width:'10px', height: '100%', backgroundColor:'rbg(225,225,225,0,5)'}}>
+        <Box sx={{ width: '10px', height: '100%', backgroundColor: 'rbg(225,225,225,0,5)' }}>
 
         </Box>
 
       </Grid>
       <Grid item md={11} xl={11}>
         <Stack spacing={4} padding={'6vw 10vw 10vw 20vw'}>
-        {/* <div style={{ position: 'relative', margin: '50px' }}> */}
-      <CyberpunkTypography text={'Hi, I\'m Luis Florencio'} />
-    {/* </div> */}
+          {/* <div style={{ position: 'relative', margin: '50px' }}> */}
+          <CyberpunkTypography text={'Hi, I\'m Luis Florencio'} />
+          {/* </div> */}
 
 
           <Card sx={{ width: '450px', borderRadius: '25px', backgroundColor: 'rgb(255, 255, 255,0.2)', overflow: 'hidden' }}>
 
-            <CardActionArea sx={{ width: '450px', 
-              borderRadius: '25px', 
+            <CardActionArea sx={{
+              width: '450px',
+              borderRadius: '25px',
               // border: '1px solid ', 
-              overflow: 'hidden' }}>
+              overflow: 'hidden'
+            }}>
               {/* <CardMedia
                 component="img"
                 height="130"
@@ -105,18 +107,18 @@ export function PortfolioHome() {
 
                 </Box> */}
 
-                <SocialMediaIcon link= "https://www.linkedin.com/in/aikoz" image={linkedIn}/>
-                <SocialMediaIcon link= "https://github.com/Aikoz" image={github}/>
-                <SocialMediaIcon link= "https://apps.apple.com/no/developer/ciudad-maderas/id1511022961" image={apple}/>
-                <SocialMediaIcon link= "https://www.instagram.com/aikoz/" image={instagram}/>
-                <SocialMediaIcon link= "https://www.facebook.com/jlfo.aikoz/" image={facebook}/>
-                <SocialMediaIcon link= "https://independent.academia.edu/JLFO" image={academia}/>
+                <SocialMediaIcon link="https://www.linkedin.com/in/aikoz" image={linkedIn} />
+                <SocialMediaIcon link="https://github.com/Aikoz" image={github} />
+                <SocialMediaIcon link="https://apps.apple.com/no/developer/ciudad-maderas/id1511022961" image={apple} />
+                <SocialMediaIcon link="https://www.instagram.com/aikoz/" image={instagram} />
+                <SocialMediaIcon link="https://www.facebook.com/jlfo.aikoz/" image={facebook} />
+                <SocialMediaIcon link="https://independent.academia.edu/JLFO" image={academia} />
                 {/* https://www.academia.edu/35108805/Sistema_de_detecci%C3%B3n_de_no_estacionalidad_en_datos_temporales */}
-                
-                
-                
 
-                
+
+
+
+
 
               </Stack>
             </CardActionArea>
@@ -154,15 +156,15 @@ export function PortfolioHome() {
             I know it’s not always possible, but whenever it is, I make sure to take advantage of it.
           </Typography>
 
-        
-              <Link
-                to="/landingPage/resume/"
-                style={{ textDecoration: 'none', color: 'lightgray' }}
-              >
-                <GlitchTypography text={'See more about me →'}/>
-              </Link>
-            
-          
+
+          <Link
+            to="/landingPage/portfolioReadings/"
+            style={{ textDecoration: 'none', color: 'lightgray' }}
+          >
+            <GlitchTypography text={'Check out more about my readings →'} />
+          </Link>
+
+
 
           {/* <Box sx={{ flexGrow: 1, marginLeft: '0vw', width: '97.4vw', transition: 'width 0.2s ease, margin 0.2s ease' }}>
             <Typography
@@ -186,6 +188,15 @@ export function PortfolioHome() {
             </Typography>
           </Box> */}
 
+
+          <Typography
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '200',
+              fontSize: '12px',
+              width: '100%',
+              color: 'lightgray',
+            }} >{"\"Portfolio under development. Expect great things to come.\""}</Typography>
 
 
 

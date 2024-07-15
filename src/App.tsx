@@ -9,6 +9,9 @@ import { LandingPageLayout } from './components/landing-page/landingPageLayout';
 import { PortfolioHome } from './components/landing-page/portfolio-home/portfolioHome';
 import { PortfolioCV } from './components/landing-page/portfolio-cv/portfolioCV';
 import { Box } from '@mui/material';
+import { PortfolioReadings } from './components/landing-page/portfolio-readings/portfolioReadings';
+import { PortfolioProjects } from './components/landing-page/portfolio-projects/portfolioProjects';
+import { PortfolioContact } from './components/landing-page/portfolio-contact/portfolioContact';
 
 
 interface RememberLastVisitedPathProps {
@@ -58,13 +61,15 @@ export function App() {
       <HashRouter>
 
       
-        <RememberLastVisitedPath isLoggedIn={isLoggedIn}>
           <Routes>
             <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} /> : <Navigate to="/" />} >
               <Route index path="portfolioHome" element={<PortfolioHome />} />
+              <Route index path="portfolioProjects" element={<PortfolioProjects />} />
+              <Route index path="portfolioReadings" element={<PortfolioReadings />} />
+              <Route index path="portfolioContact" element={<PortfolioContact />} />
               <Route index path="resume" element={<PortfolioCV />} />
-
+    
 
             </Route>
 
@@ -77,7 +82,6 @@ export function App() {
               }
             />
           </Routes>
-        </RememberLastVisitedPath>
         </HashRouter>
       {/* </Router> */}
     </Box>

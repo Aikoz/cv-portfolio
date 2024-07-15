@@ -45,12 +45,13 @@ const glitchStyles = css`
 `;
 
 function GlitchTypography(props:any) {
-  const {text}=props
+  const {text, font}=props
   return (
     
-    <Typography css={glitchStyles} data-text="Glitch Effect">
-      {text}
-    </Typography>
+  <Typography css={glitchStyles} data-text="Glitch Effect">
+    {text}
+  </Typography>
+    
   
 );
 }

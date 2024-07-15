@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Box, Grid, Stack, Typography} from "@mui/material";
+import { Link } from "react-router-dom";
+import GlitchTypography from "../../../utils/glitchTypography";
 // import { Delete, EditNote } from "@mui/icons-material";
 // import { server } from "../../../utils/constants";
 // import { DateFormatter } from '../../../utils/dateFormatter'
@@ -1576,12 +1578,19 @@ export function PortfolioCV() {
               fontWeight: '200',
               fontSize: '17px',
               width: 'auto',
-              color: 'white'
+              color: 'white',
+              marginBottom:'45px'
             }}
           >
             Camping, Dancing, Final Fantasy Seven games (all of them) and independent films
           </Typography>
+          <Link
 
+            to="/landingPage/portfolioContact/"
+            style={{ textDecoration: 'none', color: 'lightgray' }}
+          >
+            <GlitchTypography text={'Contact me →'} />
+          </Link>
         </Stack>
       </Grid>
     </Grid>

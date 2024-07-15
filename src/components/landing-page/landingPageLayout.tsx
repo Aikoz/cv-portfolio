@@ -251,7 +251,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
         {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
 
         <Card variant="outlined" sx={{
-          maxWidth: '100vw', minHeight: '84.25vh', 
+          maxWidth: '100vw', minHeight: '14.25vh', 
           backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
           backgroundColor: 'rgba(9, 9, 9, 0.65)',
@@ -263,6 +263,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
           fontSize: '1.15em',
           lineHeight: '1.5em',
           borderRadius: '0.5rem',
+          //marginRight: '15px'
           // margin: '1rem'
         }}
         >
