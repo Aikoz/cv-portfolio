@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Card, CardActionArea, Grid, Stack, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, CardMedia, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-// import profileImg from "../../../assets/profileImg.jpg"
-// import frontPage from "../../../assets/fondo1.jpg"
+import profileImg from "../../../assets/profileImg.jpg"
+import frontPage from "../../../assets/fondo3.jpg"
 import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
 import instagram from "../../../assets/Instagram.png"
@@ -44,7 +44,7 @@ export function PortfolioHome() {
 
 
   useEffect(() => {
-    setSharedTitle('');
+    setSharedTitle('Welcome');
 
   }, [])
 
@@ -62,50 +62,111 @@ export function PortfolioHome() {
 
       </Grid>
       <Grid item md={11} xl={11}>
-        <Stack spacing={4} padding={'6vw 10vw 10vw 20vw'}>
+        <Stack spacing={4} padding={'6vw 5vw 10vw 10vw'}>
           {/* <div style={{ position: 'relative', margin: '50px' }}> */}
           <CyberpunkTypography text={'Hi, I\'m Luis Florencio'} />
           {/* </div> */}
 
 
-          <Card sx={{ width: '450px', borderRadius: '25px', backgroundColor: 'rgb(255, 255, 255,0.2)', overflow: 'hidden' }}>
+          <Card sx={{ marginLeft: '-100px', width: '650px', borderRadius: '25px', backgroundColor: 'rgb(255, 255, 255,0.2)', overflow: 'hidden' }}>
 
             <CardActionArea sx={{
-              width: '450px',
+              width: '650px',
               borderRadius: '25px',
               // border: '1px solid ', 
               overflow: 'hidden'
             }}>
-              {/* <CardMedia
+
+              <CardMedia
                 component="img"
                 height="130"
-                image={frontPage}
                 alt="front image"
-                
-              /> */}
+                image={frontPage}
+
+              />
+              <Box sx={{
+                height: '130px',
+                width: '100%',
+                position: 'absolute', // Ensure it's positioned correctly over the CardMedia
+                top: 0,
+                left: 0,
+                backgroundColor: 'rgba(17, 25, 40, 0.65)',
+                animation: `filterAnimation 4s infinite alternate`,
+                '@keyframes filterAnimation': {
+                  '0%': {
+                    backdropFilter: 'blur(0px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(0px) saturate(100%)',
+                    backgroundColor: 'rgba(95, 95, 95, 0.1)',
+
+                  },
+                  '5%': {
+                    backdropFilter: 'blur(16px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                    backgroundColor: 'rgba(17, 25, 40, 0.65)',
+
+                  },
+                  '30%': {
+                    backdropFilter: 'blur(16px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                    backgroundColor: 'rgba(17, 25, 40, 0.65)',
+
+                  },
+                  '31%': {
+                    backdropFilter: 'blur(0px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(0px) saturate(180%)',
+                    backgroundColor: 'rgba(105, 105, 105, 0.1)',
+
+                  },
+                  '97%': {
+                    backdropFilter: 'blur(0px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(0px) saturate(180%)',
+                    backgroundColor: 'rgba(105, 105, 105, 0.1)',
+
+                  },
+                  '98%': {
+                    backdropFilter: 'blur(16px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                    backgroundColor: 'rgba(17, 25, 40, 0.65)',
+
+                  },
+                  '100%': {
+                    backdropFilter: 'blur(0px) saturate(100%)',
+                    WebkitBackdropFilter: 'blur(0px) saturate(180%)',
+                    backgroundColor: 'rgba(155, 155, 155, 0.1)',
+
+                  },
+                },
+              }} />
+
+
               <Stack direction={'row'} alignItems={'bottom'} alignContent={'end'}>
-                {/* <Box sx={{ marginTop: "-100px",
-                marginLeft:'15px', 
-                marginBottom:'15px', 
-                borderRadius: '195px', 
-                backgroundColor: 'rgb(255, 255, 255,0.3)', 
-                padding: '4px', 
-                width: '190px',
-                height: '190px' }}>
+                <Box sx={{
+                  marginTop: "-100px",
+                  marginLeft: '15px',
+                  marginBottom: '15px',
+                  borderRadius: '195px',
+                  backgroundColor: 'rgb(255, 255, 255,0.3)',
+                  padding: '4px',
+                  width: '150px',
+                  height: '150px',
+                  position: 'absolute',
+                }}>
 
                   <img
-                    style={{ borderRadius: '195px',
-                      
-                     }}
-                    height="190px"
-                    width="190px"
+                    style={{
+                      borderRadius: '195px',
+
+                    }}
+                    height="150px"
+                    width="150px"
                     src={profileImg}
                     alt="front image"
                   />
 
 
 
-                </Box> */}
+                </Box>
+                <Box marginLeft='180px'></Box>
 
                 <SocialMediaIcon link="https://www.linkedin.com/in/aikoz" image={linkedIn} />
                 <SocialMediaIcon link="https://github.com/Aikoz" image={github} />

@@ -33,6 +33,8 @@ function SocialMediaIcon({ link, image }: any) {
     <Link
       to={link}
       target="_blank"
+      style={{ textDecoration: 'none' }}
+
     >
       <Stack direction={'row'}>
       <img

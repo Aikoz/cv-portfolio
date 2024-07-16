@@ -106,10 +106,29 @@ export default function LandingTopBar(props: any) {
       <AppBar
         position="relative"
         sx={{
-          backdropFilter: 'blur(16px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-          backgroundColor: 'rgba(17, 25, 40, 0)',
-          // border: '1px solid rgba(36, 28, 28, 0.125)',
+
+          backgroundColor: 'rgba(17, 25, 40, 0.65)',
+          animation: `filterAnimation 8s infinite alternate`,
+          '@keyframes filterAnimation': {
+            '0%': {
+              backdropFilter: 'blur(16px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+              backgroundColor: 'rgba(17, 25, 40, 0.65)',
+
+            },
+            '30%': {
+              backdropFilter: 'blur(0px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(0px) saturate(180%)',
+              backgroundColor: 'rgba(17, 25, 40, 0.65)',
+
+            },
+            '100%': {
+              backdropFilter: 'blur(16px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+              backgroundColor: 'rgba(17, 25, 40, 0.65)',
+
+            },
+          },          // border: '1px solid rgba(36, 28, 28, 0.125)',
           color: '#ffffffdd',
           flex: '1 1 auto',
           padding: '1rem',
@@ -124,29 +143,29 @@ export default function LandingTopBar(props: any) {
         }}>
           {withMenu &&
             <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              mr: open ? 0 : 3,
-              transition: 'width 0.4s ease',
-              display: 'flex',
-              alignItems: 'center',
-              justifyItems: 'center',
-              height: '80px',
-              width: open ? 0 : '80px',
-              overflow: 'hidden'
-            }}
-          >
-            <MenuIcon sx={{
-              transition: 'width 0.4s ease',
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                mr: open ? 0 : 3,
+                transition: 'width 0.4s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyItems: 'center',
+                height: '80px',
+                width: open ? 0 : '80px',
+                overflow: 'hidden'
+              }}
+            >
+              <MenuIcon sx={{
+                transition: 'width 0.4s ease',
 
-              width: open ? 0 : '80px',
-            }} />
-          </IconButton>
+                width: open ? 0 : '80px',
+              }} />
+            </IconButton>
           }
-          
+
 
 
           <Link to={`/landingPage/portfolioHome/`}>
@@ -173,8 +192,8 @@ export default function LandingTopBar(props: any) {
                 xs: 'none',
                 sm: 'block',
                 fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '600',
-                fontSize: '45px'
+                fontWeight: '100',
+                fontSize: '50px'
               }
             }}
           >

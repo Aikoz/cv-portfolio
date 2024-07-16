@@ -1,8 +1,8 @@
 // App.js
 import { useState, useEffect, ReactNode } from 'react';
-import {  Routes, Route, Navigate, useLocation, useNavigate,  } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useNavigate, } from 'react-router-dom';
 // import {  BrowserRouter as Router } from 'react-router-dom';
-import {  HashRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Login from './components/login/login';
 import './App.css'
 import { LandingPageLayout } from './components/landing-page/landingPageLayout';
@@ -41,6 +41,14 @@ const RememberLastVisitedPath: React.FC<RememberLastVisitedPathProps> = ({ child
 
   return <>{children}</>;
 };
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export function App() {
   // const open = true; // o false, dependiendo de tu lógica
@@ -60,29 +68,28 @@ export function App() {
       {/* <Router basename={import.meta.env.BASE_URL}> */}
       <HashRouter>
 
-      
-          <Routes>
-            <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} /> : <Navigate to="/" />} >
-              <Route index path="portfolioHome" element={<PortfolioHome />} />
-              <Route index path="portfolioProjects" element={<PortfolioProjects />} />
-              <Route index path="portfolioReadings" element={<PortfolioReadings />} />
-              <Route index path="portfolioContact" element={<PortfolioContact />} />
-              <Route index path="resume" element={<PortfolioCV />} />
-    
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} /> : <Navigate to="/" />} >
+            <Route index path="portfolioHome" element={<PortfolioHome />} />
+            <Route index path="portfolioProjects" element={<PortfolioProjects />} />
+            <Route index path="portfolioReadings" element={<PortfolioReadings />} />
+            <Route index path="portfolioContact" element={<PortfolioContact />} />
+            <Route index path="resume" element={<PortfolioCV />} />
 
-            </Route>
 
-            <Route
-              path="*"
-              element={
-                <main style={{ padding: '1rem', color: 'black', display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '200px' }}>
-                  <h1>404: Ruta no encontrada!</h1>
-                </main>
-              }
-            />
-          </Routes>
-        </HashRouter>
+          </Route>
+
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: '1rem', color: 'black', display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '200px' }}>
+                <h1>404: Ruta no encontrada!</h1>
+              </main>
+            }
+          />
+        </Routes>
+      </HashRouter>
       {/* </Router> */}
     </Box>
   );

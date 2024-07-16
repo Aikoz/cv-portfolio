@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-// import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-// import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -40,30 +38,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   }),
 }));
 
-// interface AppBarProps extends MuiAppBarProps {
-//   open?: boolean;
-// }
-// interface OutletContextType {
-//   setSharedTitle: Dispatch<SetStateAction<string>>;
-// }
 
-// const AppBar = styled(MuiAppBar, {
-//   shouldForwardProp: (prop) => prop !== 'open',
-// })<AppBarProps>(({ theme, open }) => ({
-//   transition: theme.transitions.create(['margin', 'width'], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-
-//   }),
-//   ...(open && {
-//     width: `calc(100% - ${drawerWidth})`,
-//     marginLeft: `${drawerWidth}`,
-//     transition: theme.transitions.create(['margin', 'width'], {
-//       easing: theme.transitions.easing.easeOut,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//   }),
-// }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -123,7 +98,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
   };
 
   useEffect(() => {
-    // navigate('/landingPage/portfolioHome/');
+    
   }, [])
 
   return (
@@ -214,33 +189,6 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
                 <SendAndArchive />
               </ListItemIcon>
               <ListItemText primary={"Envios"} />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem key={"NotificationAdmin"} disablePadding>
-            <ListItemButton component={Link} to="/dashboard/notificationAdmin" onClick={() => (handleDrawerClose("/dashboard/notificationAdmin"))}>
-              <ListItemIcon>
-                <NotificationsNone />
-              </ListItemIcon>
-              <ListItemText primary={"Administrador de plantillas"} />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem key={"Proyectos"} disablePadding>
-            <ListItemButton component={Link} to="/dashboard/proyectos" onClick={() => (handleDrawerClose("/dashboard/proyectos"))}>
-              <ListItemIcon>
-                <FactCheckOutlined />
-              </ListItemIcon>
-              <ListItemText primary={"Proyectos"} />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem key={"Criterios"} disablePadding>
-            <ListItemButton component={Link} to="/dashboard/criterios" onClick={() => (handleDrawerClose("/dashboard/criterios"))}>
-              <ListItemIcon>
-                <SummarizeOutlined />
-              </ListItemIcon>
-              <ListItemText primary={"Criterios"} />
             </ListItemButton>
           </ListItem> */}
 
