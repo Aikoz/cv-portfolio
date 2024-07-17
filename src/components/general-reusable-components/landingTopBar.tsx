@@ -108,8 +108,8 @@ export default function LandingTopBar(props: any) {
         sx={{
 
           backgroundColor: 'rgba(17, 25, 40, 0.65)',
-          animation: `filterAnimation 8s infinite alternate`,
-          '@keyframes filterAnimation': {
+          animation: `filterAnimationTopB 8s infinite alternate`,
+          '@keyframes filterAnimationTopB': {
             '0%': {
               backdropFilter: 'blur(16px) saturate(180%)',
               WebkitBackdropFilter: 'blur(16px) saturate(180%)',
@@ -141,7 +141,7 @@ export default function LandingTopBar(props: any) {
         <Toolbar sx={{ // descomentarlo si se necesita
           margin: '1px', // descomentarlo si se necesita
         }}>
-          {withMenu &&
+          {!withMenu &&
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -224,7 +224,7 @@ export default function LandingTopBar(props: any) {
               }} />
             </IconButton>
           </Box>}
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          {isLogginActive &&  <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -235,7 +235,7 @@ export default function LandingTopBar(props: any) {
             >
               <MoreIcon />
             </IconButton>
-          </Box>
+          </Box>}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

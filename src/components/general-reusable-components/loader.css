@@ -1,0 +1,76 @@
+/* Loader.css */
+.loader {
+    position: fixed;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 96%;
+    height: 96%;
+    border-radius: 15px;
+    background-color: rgba(27, 20, 0, 0.74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
+    z-index: 1301;
+  }
+  
+  .loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .square-container {
+    display: grid;
+    grid-template-columns: repeat(3, 35px);
+    grid-template-rows: repeat(3, 35px);
+    gap: 10px;
+  }
+  
+  .square {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    background-color: rgba(212, 181, 0, 0.877);
+    animation: growHide 2s infinite ease-in-out;
+  }
+  
+  .square:nth-child(1) { animation-delay: 0s; }
+  .square:nth-child(2) { animation-delay: 0.1s; }
+  .square:nth-child(3) { animation-delay: 0.2s; }
+  .square:nth-child(4) { animation-delay: 0.3s; }
+  .square:nth-child(5) { animation-delay: 0.4s; }
+  .square:nth-child(6) { animation-delay: 0.5s; }
+  .square:nth-child(7) { animation-delay: 0.6s; }
+  .square:nth-child(8) { animation-delay: 0.7s; }
+  .square:nth-child(9) { animation-delay: 0.8s; }
+  
+  @keyframes growHide {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    2% {
+        transform: scale(0.5);
+        opacity: 0;
+        background-color: rgba(197, 197, 197, 0.781);
+      }
+    3% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    51% {
+        transform: scale(1);
+      opacity: 1;
+      }
+    53% {
+      transform: scale(0.5);
+      opacity: 0;
+      background-color: rgba(207, 207, 206, 0.514);
+    }
+  }
+  

@@ -1,23 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Card, CardActionArea, Grid, Stack, Typography } from "@mui/material";
+import { Grid, Stack} from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-// import profileImg from "../../../assets/profileImg.jpg"
-// import frontPage from "../../../assets/fondo1.jpg"
-import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
-import instagram from "../../../assets/Instagram.png"
-import github from "../../../assets/github.png"
-import linkedIn from "../../../assets/LinkedIn.png"
-import academia from "../../../assets/academia.png"
-import CyberpunkTypography from "../../../utils/glitchLetters";
+import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import styled from "styled-components";
-import Sidebar from "../../../utils/sideBar";
 import PreviewCard from "../../../utils/previewCard";
-// import { Delete, EditNote } from "@mui/icons-material";
-// import { server } from "../../../utils/constants";
-// import { DateFormatter } from '../../../utils/dateFormatter'
+
 
 const Container = styled.div`
   display: flex;
@@ -25,24 +15,21 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const Article = styled.div`
-  margin-bottom: 50px;
-`;
-
 const itemList = [
-  {
-    title: 'Socio Maderas',
-    description: '',
-    link: 'https://www.facebook.com/sociomaderas?paipv=0&eav=AfZz-zh-P3sINAiQnt3FW62R9OVj3uEbL16emYJoBjp4RGr-kcV4HCcEB-oCF-uaTwI',
-    mediaType: 'video',
-    mediaSrc: 'https://scontent.fmex10-4.fna.fbcdn.net/v/t42.1790-2/268440996_2167900870027196_1892635545118626706_n.mp4?_nc_cat=106&ccb=1-7&_nc_sid=55d0d3&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCIsInZpZGVvX2lkIjoxNjQ4NTc3MTAyMTQwNTg1fQ%3D%3D&_nc_ohc=XipmRjvavfsQ7kNvgH3kTRi&tn=CWKljQBgTi1tLTY2&_nc_rml=0&_nc_ht=scontent.fmex10-4.fna&oh=00_AYAOI7CTAO7MWc4Wve6j1MPPm307BgGeQhMN7b3ztO8USQ&oe=669BE30D',
-  },
+
   {
     title: 'Pagos CM',
     description: '',
     link: 'https://apps.apple.com/mx/app/pagos-cm/id1558729335',
     mediaType: 'youtube',
     mediaSrc: 'https://www.youtube.com/embed/iaUkkp2ja7I?autoplay=1&mute=1&loop=1&controls=0&playlist=iaUkkp2ja7I',
+  },
+  {
+    title: 'Socio Maderas',
+    description: '',
+    link: 'https://www.facebook.com/sociomaderas?paipv=0&eav=AfZz-zh-P3sINAiQnt3FW62R9OVj3uEbL16emYJoBjp4RGr-kcV4HCcEB-oCF-uaTwI',
+    mediaType: 'video',
+    mediaSrc: 'https://scontent.fmex10-4.fna.fbcdn.net/v/t42.1790-2/268440996_2167900870027196_1892635545118626706_n.mp4?_nc_cat=106&ccb=1-7&_nc_sid=55d0d3&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCIsInZpZGVvX2lkIjoxNjQ4NTc3MTAyMTQwNTg1fQ%3D%3D&_nc_ohc=XipmRjvavfsQ7kNvgH3kTRi&tn=CWKljQBgTi1tLTY2&_nc_rml=0&_nc_ht=scontent.fmex10-4.fna&oh=00_AYAOI7CTAO7MWc4Wve6j1MPPm307BgGeQhMN7b3ztO8USQ&oe=669BE30D',
   },
   {
     title: 'Mantenimiento GPH',
@@ -101,28 +88,20 @@ function SocialMediaIcon({ link, image }: any) {
 
 interface OutletContextType {
   setSharedTitle: (title: string) => void;
+  setLoading: (title: boolean) => void;
 }
 
 export function PortfolioProjects() {
 
-  const { setSharedTitle } = useOutletContext<OutletContextType>();
+  const { setSharedTitle, setLoading } = useOutletContext<OutletContextType>();
 
 
 
   useEffect(() => {
     setSharedTitle('Projects');
-    
+    setLoading(false);
+
   }, [])
-
-
-  const articleRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const scrollToArticle = (index: number) => {
-    if (articleRefs.current[index]) {
-      articleRefs.current[index].scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
 
   return (
 
@@ -137,7 +116,7 @@ export function PortfolioProjects() {
           <Container>
             <Grid container spacing={2}>
               {itemList.map((item, index) => (
-                <Grid item xs={6} sm={6} md={6} key={index}>
+                <Grid item xs={12} sm={12} md={12} xl={6} key={index}>
                   <PreviewCard
                     title={item.title}
                     description={item.description}

@@ -1,22 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Box, Card, CardActionArea, Grid, Stack, Typography } from "@mui/material";
+import {  Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-// import profileImg from "../../../assets/profileImg.jpg"
-// import frontPage from "../../../assets/fondo1.jpg"
-import facebook from "../../../assets/facebook.png"
-import apple from "../../../assets/appleDeveloper.png"
-import instagram from "../../../assets/Instagram.png"
-import github from "../../../assets/github.png"
-import linkedIn from "../../../assets/LinkedIn.png"
 import academia from "../../../assets/academia.png"
-import CyberpunkTypography from "../../../utils/glitchLetters";
+import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import styled from "styled-components";
-import Sidebar from "../../../utils/sideBar";
-// import { Delete, EditNote } from "@mui/icons-material";
-// import { server } from "../../../utils/constants";
-// import { DateFormatter } from '../../../utils/dateFormatter'
 
 const Container = styled.div`
   display: flex;
@@ -54,16 +43,16 @@ function SocialMediaIcon({ link, image }: any) {
 
 interface OutletContextType {
   setSharedTitle: (title: string) => void;
+  setLoading: (title: boolean) => void;
 }
 
 export function PortfolioReadings() {
 
-  const { setSharedTitle } = useOutletContext<OutletContextType>();
-
-
+  const { setSharedTitle, setLoading } = useOutletContext<OutletContextType>();
 
   useEffect(() => {
     setSharedTitle('My readings');
+    setLoading(false);
 
   }, [])
   const articles = [
@@ -76,13 +65,6 @@ export function PortfolioReadings() {
   ];
 
   const articleRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const scrollToArticle = (index: number) => {
-    if (articleRefs.current[index]) {
-      articleRefs.current[index].scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
 
   return (
 
@@ -98,7 +80,7 @@ export function PortfolioReadings() {
 
             <div>
               {articles.map((article, index) => (
-                <Link to={article.link}
+                <Link key={index}  to={article.link}
                 target="_blank">
                 <Article key={index} ref={(el) => (articleRefs.current[index] = el)}>
                   <CyberpunkTypography text={'_.    -'} />
@@ -133,7 +115,7 @@ export function PortfolioReadings() {
                 to="/landingPage/portfolioProjects/"
                 style={{ textDecoration: 'none', color: 'lightgray' }}
               >
-                <GlitchTypography text={'See more about me →'}/>
+                <GlitchTypography text={'Go to my projects →'}/>
               </Link>
 
         </Stack>

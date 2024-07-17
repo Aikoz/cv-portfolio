@@ -1,5 +1,5 @@
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
-import { Card, Stack } from '@mui/material';
+import { Card } from '@mui/material';
 import { useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -19,21 +19,20 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   open?: boolean;
 }>(({ theme, open }) => ({
   flexGrow: 1,
-  padding: theme.spacing(3),
   paddingTop: '145px',
-  width: `97.5%`,
+  width: `100%`,
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: '0.3s',
   }),
   marginLeft: 0,
   ...(open && {
-   
-    width: `calc(97.5% - ${drawerWidth})`,
-    marginLeft: `calc(${drawerWidth} + 0.5vw)`,
+
+    width: `calc(98vw - ${drawerWidth})`,
+    marginLeft: `calc(${drawerWidth} + 2vw)`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
-      duration:'0.4s',
+      duration: '0.4s',
     }),
   }),
 }));
@@ -51,7 +50,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 
 
-export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setSharedTitle }: any) {
+export function LandingPageLayout({ setIsLoggedIn,
+  isLoggedIn,
+  sharedTitle,
+  setSharedTitle,
+  setLoading }: any) {
 
 
   const location = useLocation();
@@ -98,12 +101,12 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
   };
 
   useEffect(() => {
-    
+
   }, [])
 
   return (
     <Box sx={{
-      width: '100vw',
+      maxWidth: '100vw',
       height: '100vh', // O ajusta la altura según tus necesidades
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
@@ -111,10 +114,10 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
       marginLeft: '0px',
       overflow: 'scroll'
     }}>
-      
+
       <LandingTopBar handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} open={open} closeSession={handleLogout} sharedTitle={sharedTitle}></LandingTopBar>
 
-    
+
       <Drawer
         sx={{
           width: drawerWidth,
@@ -199,7 +202,7 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
         {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
 
         <Card variant="outlined" sx={{
-          maxWidth: '100vw', minHeight: '14.25vh', 
+          maxWidth: '96%', minHeight: '14.25vh',
           backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
           backgroundColor: 'rgba(9, 9, 9, 0.65)',
@@ -207,38 +210,15 @@ export function LandingPageLayout({ setIsLoggedIn, isLoggedIn, sharedTitle, setS
           border: '1px solid rgba(36, 28, 28, 0.125)',
           color: '#ffffffdd',
           flex: '1 1 auto',
-          padding: '1rem',
           fontSize: '1.15em',
-          lineHeight: '1.5em',
           borderRadius: '0.5rem',
-          //marginRight: '15px'
-          // margin: '1rem'
+          margin: '0% 2% 0% 2%'
         }}
         >
+          <Box >
+            <Box sx={{ p: 1, backgroundColor: 'transparent', borderRadius: 1, color: "black" }}>
 
-          <Box sx={{ p: 0 }}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <Typography
-            
-              sx={{
-                fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '600',
-                fontSize: '40px',
-                width: '100%',
-                // backgroundColor:'green',
-                // textAlign: 'center'
-              }}
-            >
-
-            </Typography>
-            
-            </Stack>
-          </Box>
-
-          <Box sx={{ p: 2 }}>
-            <Box sx={{ p: 2, backgroundColor: 'transparent', borderRadius: 1, color: "black" }}>
-
-              <Outlet context={{ setSharedTitle }} />
+              <Outlet context={{ setSharedTitle, setLoading }} />
 
             </Box>
           </Box>

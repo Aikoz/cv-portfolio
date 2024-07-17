@@ -1,10 +1,9 @@
-import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Grid, Box } from '@mui/material';
+import { Card, CardMedia, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import CyberpunkTypography from './glitchLetters';
+import CyberpunkTypography from './cyberpunkTypography';
 
 
-const PreviewCard = ({ title, description, mediaType, mediaSrc, dlink }: any) => {
+const PreviewCard = ({ title, mediaType, mediaSrc, dlink }: any) => {
     return (
         <Card sx={{
             width: '100%', margin: '1rem', borderRadius: '15px', transition: 'transform 0.15s ease-in-out',
@@ -14,6 +13,7 @@ const PreviewCard = ({ title, description, mediaType, mediaSrc, dlink }: any) =>
         }}>
             <Link to={dlink}
                 target="_blank"
+                color='lightgray'
             >
                 <Box>
                     {mediaType === 'image' && (
@@ -22,6 +22,10 @@ const PreviewCard = ({ title, description, mediaType, mediaSrc, dlink }: any) =>
                             height="540"
                             image={mediaSrc}
                             alt={title}
+                            style={{ width: '100%', 
+                                objectFit: 'cover',
+                                backgroundColor:'black',
+                                pointerEvents: 'none' }}
                         />
                     )}
                     {mediaType === 'video' && (
@@ -32,7 +36,10 @@ const PreviewCard = ({ title, description, mediaType, mediaSrc, dlink }: any) =>
                             autoPlay
                             muted
                             loop
-                            style={{ width: '100%', objectFit: 'cover' }}
+                            style={{ width: '100%', 
+                                objectFit: 'cover',
+                                backgroundColor:'black',
+                                pointerEvents: 'none' }}
                         >
                             <source src={mediaSrc} type="video/mp4" />
                             Your browser does not support the video tag.
@@ -46,8 +53,9 @@ const PreviewCard = ({ title, description, mediaType, mediaSrc, dlink }: any) =>
                             title={title}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             style={{
-                                width: '100%',
+                                width: '100%', 
                                 objectFit: 'cover',
+                                backgroundColor:'black',
                                 pointerEvents: 'none'
                             }}
                         />
@@ -75,7 +83,7 @@ const PreviewCard = ({ title, description, mediaType, mediaSrc, dlink }: any) =>
                     sx={{
                         fontFamily: 'Libre Franklin, Arial, sans-serif',
                         fontWeight: '400',
-                        fontSize: '40px',
+                        fontSize: '35px',
                         width: '100%',
                         marginBottom:'-25px'
                         // backgroundColor:'green',

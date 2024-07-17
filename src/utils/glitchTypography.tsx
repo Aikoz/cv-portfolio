@@ -12,11 +12,6 @@ const glitch = keyframes`
 `;
 
 const glitchStyles = css`
-  position: relative;
-  color: white;
-  font-size: 1.1em;
-  font-weight: 100;
-  font-family: 'Libre Franklin', Arial, sans-serif;
   text-decoration: underline;
   animation: ${glitch} 2s infinite;
 
@@ -44,16 +39,18 @@ const glitchStyles = css`
   }
 `;
 
-function GlitchTypography(props:any) {
-  const {text, font}=props
+function GlitchTypography(props: any) {
+  const { text } = props
   return (
-    
-  <Typography css={glitchStyles} data-text="Glitch Effect">
-    {text}
-  </Typography>
-    
-  
-);
+
+    <Typography
+      variant="subtitle1"
+      css={glitchStyles} data-text="Glitch Effect">
+      {text}
+    </Typography>
+
+
+  );
 }
 
 export default GlitchTypography;

@@ -9,15 +9,15 @@ const glitchAnimation = keyframes`
     opacity: 1;
   }
   10% {
-    transform: translate(-1px, -1px) skew(-1deg);
+    transform: translate(-1px, -0px) skew(-1deg);
     opacity: 0.8;
   }
   20% {
-    transform: translate(1px, 1px)  ;
+    transform: translate(1px, 0px)  ;
     opacity: 1;
   }
   38% {
-    transform: translate(-1px, 1px) ;
+    transform: translate(-1px, 0px) ;
     opacity: 0.6;
   }
   47% {
@@ -26,13 +26,13 @@ const glitchAnimation = keyframes`
     opacity: 0.6;
   }
   48% {
-    transform: translate(-1px, 1px) ;
-      letter-spacing: 15px;
+    transform: translate(200px, 0px) ;
+      letter-spacing: 0px;
 
     opacity: 0.6;
   }
   49% {
-    transform: translate(-323px, -3px) ;
+    transform: translate(-323px, -0px) ;
        letter-spacing: 0px;
 
 
@@ -43,27 +43,27 @@ const glitchAnimation = keyframes`
     opacity: 1;
   }
   60% {
-    transform: translate(-1px, 1px) ;
+    transform: translate(-1px, 0px) ;
     opacity: 0.8;
   }
   70% {
-    transform: translate(1px, -1px) skew(1deg) ;
+    transform: translate(1px, -0px) skew(1deg) ;
     opacity: 0.6;
   }
   79% {
-    transform: translate(3px, -3px) ;
+    transform: translate(3px, -0px) ;
     opacity: 0.9;
   }
   80% {
-    transform: translate(-1px, -1px) ;
+    transform: translate(-1px, -0px) ;
     opacity: 0.9;
   }
   98% {
-    transform: translate(-1px, -1px) ;
+    transform: translate(-1px, -0px) ;
     opacity: 0.9;
   }
   99% {
-    transform: translate(-3px, 3px) ;
+    transform: translate(-3px, 0px) ;
     opacity: 0.8;
   }
   100% {
@@ -116,6 +116,11 @@ const GlitchText = styled.div`
     text-shadow: -2px 0 ${colors[2]};
     clip: rect(85px, 550px, 140px, 0);
     animation: ${glitchAnimation} 1s infinite;
+  }
+
+    @media (max-width: 768px) {
+    font-weight: 100;
+    font-size: 25px; /* Tamaño de fuente más pequeño para pantallas móviles */
   }
 `;
 

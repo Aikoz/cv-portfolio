@@ -1,6 +1,4 @@
 // src/components/Sidebar.js
-
-import React from 'react';
 import styled from 'styled-components';
 
 const SidebarContainer = styled.div`

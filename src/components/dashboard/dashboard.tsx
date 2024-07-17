@@ -80,7 +80,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 
 
-export function Dashboard({ setIsLoggedIn, isLoggedIn, sharedTitle, setSharedTitle }: any) {
+export function Dashboard({ setIsLoggedIn, isLoggedIn, sharedTitle, setSharedTitle, setLoading }: any) {
 
 
   const location = useLocation();
@@ -239,7 +239,7 @@ export function Dashboard({ setIsLoggedIn, isLoggedIn, sharedTitle, setSharedTit
             <Box sx={{ p: 2 }}>
               <Box sx={{ p: 2, backgroundColor: 'white', borderRadius: 1, color: "black" }}>
 
-                <Outlet context={{ setSharedTitle }} />
+                <Outlet context={{ setSharedTitle, setLoading }} />
 
               </Box>
             </Box>
