@@ -85,7 +85,7 @@ export function PortfolioHome() {
       margin: '5%',
       height: '100%',
       backgroundColor: 'rbg(225,225,225,0.5)',
-      overflow: 'hidden'
+      //overflow: 'hidden'
     }} >
       <Grid container direction='row' spacing={{ xl: 2, md: 5 }} sx={{ width: '100%' }} >
 
@@ -95,7 +95,7 @@ export function PortfolioHome() {
             width: '100%',
             height: '100%',
             backgroundColor: 'rbg(225,225,225,0.5)',
-            overflow: 'hidden'
+            //overflow: 'hidden'
           }}>
 
             <Stack spacing={'1%'}>
@@ -108,14 +108,14 @@ export function PortfolioHome() {
                 maxWidth: '680px',
                 borderRadius: '25px',
                 backgroundColor: 'rgb(255, 255, 255,0.1)',
-                overflow: 'hidden'
+                //overflow: 'hidden'
               }}>
 
                 <CardActionArea sx={{
                   maxWidth: '680px',
                   borderRadius: '25px',
                   // border: '1px solid ', 
-                  overflow: 'hidden'
+                  //overflow: 'hidden'
                 }}>
 
                   <CardMedia

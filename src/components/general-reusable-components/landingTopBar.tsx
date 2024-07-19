@@ -141,7 +141,7 @@ export default function LandingTopBar(props: any) {
         <Toolbar sx={{ // descomentarlo si se necesita
           margin: '1px', // descomentarlo si se necesita
         }}>
-          {!withMenu &&
+          {withMenu &&
             <IconButton
               color="inherit"
               aria-label="open drawer"
