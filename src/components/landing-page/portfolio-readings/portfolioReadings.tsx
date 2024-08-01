@@ -51,7 +51,7 @@ export function PortfolioReadings() {
   const { setSharedTitle, setLoading } = useOutletContext<OutletContextType>();
 
   useEffect(() => {
-    setSharedTitle('My readings');
+    setSharedTitle('Published research papers');
     setLoading(false);
 
   }, [])

@@ -17,8 +17,8 @@ const BackgroundVideo = styled('video')({
   height: '100%',
   objectFit: 'cover',
   zIndex: -1,
-  marginTop:'-35px',
-  marginLeft:'-55px',
+  marginTop:'-0px',
+  marginLeft:'-0px',
   opacity: 0.1, // Opacidad del 20%
 });
 
@@ -31,7 +31,8 @@ export function PortfolioContact() {
   }, [])
 
   return (
-    <Box> <BackgroundVideo autoPlay loop muted>
+    <Box> 
+      <BackgroundVideo autoPlay loop muted>
         <source src="https://cdn.pixabay.com/video/2021/09/27/89894-616430996_large.mp4" type="video/mp4" />
         {/* Puedes agregar más formatos de video si es necesario */}
       </BackgroundVideo>

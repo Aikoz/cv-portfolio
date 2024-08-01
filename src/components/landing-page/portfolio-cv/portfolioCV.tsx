@@ -16,6 +16,7 @@ const ExperienceItem = ({ title, company, dateRange, tasks }: any) => (
         width: '100%',
         alignItems: 'center',
         justifyItems: 'center',
+        marginTop: '17px',
         marginBottom: '17px',
       }}
     >
@@ -321,11 +322,11 @@ export function PortfolioCV() {
 
 
   return (
-    <Stack>
+    <Stack p={10}>
       <Grid container direction='row' spacing={{ xl: 2, md: 5 }}>
 
-        <Grid item md={12} xl={10}>
-          <Stack>
+        <Grid item md={12} xl={10} >
+          <Stack >
 
             <CyberpunkTypography text='José Luis Florencio Ortíz'>
 
@@ -341,7 +342,8 @@ export function PortfolioCV() {
                 color: 'lightgray',
               }}
             >
-              Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
+              Computer Systems Analyst with a focus on mobile applications, iOS application
+              developer.
             </Typography>
 
             <Section title="Relevant experience">
@@ -410,7 +412,7 @@ export function PortfolioCV() {
             />
 
             <Address
-              address="Av. del ferrocarril 12, San Sebastián, Santiago de Querétaro, Querétaro, México."
+              address="Santiago de Querétaro, Querétaro, México."
             />
 
             <Section title="Skills">

@@ -1,6 +1,6 @@
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { Card } from '@mui/material';
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -8,10 +8,10 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 import backgroundImage from '../../assets/fondo2.jpg';
 import LandingTopBar from '../general-reusable-components/landingTopBar';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 const drawerWidth = '20vw';
 
@@ -99,79 +99,88 @@ export function LandingPageLayout({ setIsLoggedIn,
 
     setOpen(false);
   };
+  const boxRef = useRef<HTMLDivElement>(null);
+  const { pathname } = useLocation();
 
   useEffect(() => {
+    if(boxRef.current) {
 
-  }, [])
-
-  return (
-    <Box sx={{
-      maxWidth: '100vw',
-      height: '100vh', // O ajusta la altura según tus necesidades
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      marginLeft: '0px',
-      overflow: 'scroll'
-    }}>
-
-      <LandingTopBar handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} open={open} closeSession={handleLogout} sharedTitle={sharedTitle}></LandingTopBar>
+      boxRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [pathname])
 
 
-      <Drawer
-        sx={{
+
+  
+
+return (
+  <Box sx={{
+    maxWidth: '100vw',
+    height: '100vh', // O ajusta la altura según tus necesidades
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    marginLeft: '0px',
+    overflow: 'scroll'
+  }}>
+
+    <LandingTopBar handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} open={open} closeSession={handleLogout} sharedTitle={sharedTitle}></LandingTopBar>
+
+
+    <Drawer
+      sx={{
+        width: drawerWidth,
+        zIndex: 1299,
+
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
           width: drawerWidth,
-          zIndex: 1299,
+          boxSizing: 'border-box'
+          ,
+          height: '97vh',
 
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box'
-            ,
-            height: '97vh',
+          backdropFilter: 'blur(16px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+          backgroundColor: 'rgba(17, 25, 40, 0.65)',
+          border: '1px solid rgba(36, 28, 28, 0.125)',
+          color: '#ffffffdd',
+          flex: '1 1 auto',
+          padding: '1rem',
+          fontSize: '1.15em',
+          lineHeight: '1.5em',
+          borderRadius: '0.5rem', // descomentarlo si se necesita
+          margin: '1rem', // descomentarlo si se necesita
+        }
+      }}
+      variant="persistent"
+      anchor="left"
+      open={open}
+    >
+      <DrawerHeader style={{ color: "white", width: '95%', height: '110px' }}>
+        <Box sx={{
+          display: 'flex', alignItems: 'center', justifyItems: 'center', width: '100%'
+        }}>
+          <IconButton onClick={() => (handleDrawerClose(''))} style={{ color: "white", width: '45px', height: '45px' }}>
+            {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
+          </IconButton>
+          <Typography
+            variant="h6"
+            // noWrap
+            sx={{
+              fontFamily: 'Libre Franklin, Arial, sans-serif',
+              fontWeight: '800',
+              fontSize: '20px',
+              width: '100%',
+              // backgroundColor:'green',
+              textAlign: 'center'
+            }}
+          >
+            Content
 
-            backdropFilter: 'blur(16px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-            backgroundColor: 'rgba(17, 25, 40, 0.65)',
-            border: '1px solid rgba(36, 28, 28, 0.125)',
-            color: '#ffffffdd',
-            flex: '1 1 auto',
-            padding: '1rem',
-            fontSize: '1.15em',
-            lineHeight: '1.5em',
-            borderRadius: '0.5rem', // descomentarlo si se necesita
-            margin: '1rem', // descomentarlo si se necesita
-          }
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader style={{ color: "white", width: '95%', height: '110px' }}>
-          <Box sx={{
-            display: 'flex', alignItems: 'center', justifyItems: 'center', width: '100%'
-          }}>
-            <IconButton onClick={() => (handleDrawerClose(''))} style={{ color: "white", width: '45px', height: '45px' }}>
-              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
-            <Typography
-              variant="h6"
-              // noWrap
-              sx={{
-                fontFamily: 'Libre Franklin, Arial, sans-serif',
-                fontWeight: '800',
-                fontSize: '20px',
-                width: '100%',
-                // backgroundColor:'green',
-                textAlign: 'center'
-              }}
-            >
-              Content
+          </Typography>
+        </Box>
 
-            </Typography>
-          </Box>
-
-          {/* <img
+        {/* <img
                 src={BrandImg}
                 alt="Logotipo de la aplicacion"
                 loading="lazy"
@@ -182,11 +191,11 @@ export function LandingPageLayout({ setIsLoggedIn,
              /> */}
 
 
-        </DrawerHeader>
-        <Divider />
-        <List>
+      </DrawerHeader>
+      <Divider />
+      <List>
 
-          {/* <ListItem key={"Dashboard"} disablePadding>
+        {/* <ListItem key={"Dashboard"} disablePadding>
             <ListItemButton component={Link} to="/dashboard/homePage" onClick={() => (handleDrawerClose("/dashboard/homePage"))}>
               <ListItemIcon>
                 <SendAndArchive />
@@ -195,37 +204,38 @@ export function LandingPageLayout({ setIsLoggedIn,
             </ListItemButton>
           </ListItem> */}
 
-        </List>
-      </Drawer>
+      </List>
+    </Drawer>
 
-      <Main open={open} >
-        {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
+    <Main open={open} >
+      {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
 
-        <Card variant="outlined" sx={{
-          maxWidth: '96%', minHeight: '14.25vh',
-          backdropFilter: 'blur(16px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-          backgroundColor: 'rgba(9, 9, 9, 0.65)',
-          //backgroundColor: 'rgba(9, 9, 9, 0.65)',
-          border: '1px solid rgba(36, 28, 28, 0.125)',
-          color: '#ffffffdd',
-          flex: '1 1 auto',
-          fontSize: '1.15em',
-          borderRadius: '0.5rem',
-          margin: '0% 2% 0% 2%'
-        }}
-        >
-          <Box >
-            <Box sx={{ p: 1, backgroundColor: 'transparent', borderRadius: 1, color: "black" }}>
+      <Card variant="outlined" sx={{
+        maxWidth: '96%', minHeight: '14.25vh',
+        backdropFilter: 'blur(16px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+        backgroundColor: 'rgba(9, 9, 9, 0.65)',
+        //backgroundColor: 'rgba(9, 9, 9, 0.65)',
+        border: '1px solid rgba(36, 28, 28, 0.125)',
+        color: '#ffffffdd',
+        flex: '1 1 auto',
+        fontSize: '1.15em',
+        borderRadius: '0.5rem',
+        margin: '0% 2% 0% 2%'
+      }}
+      >
+        <Box >
+          <Box ref={boxRef} // Asocia la referencia al Box 
+            sx={{ p: 1, backgroundColor: 'transparent', borderRadius: 1, color: "black" }}>
 
-              <Outlet context={{ setSharedTitle, setLoading }} />
+            <Outlet context={{ setSharedTitle, setLoading }} />
 
-            </Box>
           </Box>
-        </Card>
-        {/* </LocalizationProvider> */}
-      </Main>
+        </Box>
+      </Card>
+      {/* </LocalizationProvider> */}
+    </Main>
 
-    </Box>
-  )
+  </Box>
+)
 }

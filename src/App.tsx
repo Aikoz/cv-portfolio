@@ -1,5 +1,5 @@
 // App.js
-import { useEffect, useState,  } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 // import {  BrowserRouter as Router } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
@@ -16,6 +16,9 @@ import Loader from './components/general-reusable-components/loaderSpiner';
 
 
 // Componente para manejar la lógica de recordar la última URL visitada
+
+
+
 
 export function App() {
   // const open = true; // o false, dependiendo de tu lógica
@@ -44,29 +47,30 @@ export function App() {
     <Box >
       {/* <Router basename={import.meta.env.BASE_URL}> */}
       <HashRouter>
-      {loading && <Loader />}
-      <div className={`app-content ${loading ? 'hidden' : ''}`}>
-        <Routes>
-          <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} setLoading={setLoading}/> : <Navigate to="/" />} >
-            <Route index path="portfolioHome" element={<PortfolioHome />} />
-            <Route index path="portfolioProjects" element={<PortfolioProjects />} />
-            <Route index path="portfolioReadings" element={<PortfolioReadings />} />
-            <Route index path="portfolioContact" element={<PortfolioContact />} />
-            <Route index path="resume" element={<PortfolioCV />} />
+        {loading && <Loader />}
+        <div className={`app-content ${loading ? 'hidden' : ''}`}>
+          <Routes>
+
+            <Route path="/" element={isLoggedIn ? <Navigate to="/landingPage/portfolioHome/" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/landingPage/" element={isLoggedIn ? <LandingPageLayout setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSharedTitle={setSharedTitle} sharedTitle={sharedTitle} setLoading={setLoading} /> : <Navigate to="/" />} >
+              <Route index path="portfolioHome" element={<PortfolioHome />} />
+              <Route index path="portfolioProjects" element={<PortfolioProjects />} />
+              <Route index path="portfolioReadings" element={<PortfolioReadings />} />
+              <Route index path="portfolioContact" element={<PortfolioContact />} />
+              <Route index path="resume" element={<PortfolioCV />} />
 
 
-          </Route>
+            </Route>
 
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: '1rem', color: 'black', display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '200px' }}>
-                <h1>404: Ruta no encontrada!</h1>
-              </main>
-            }
-          />
-        </Routes>
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: '1rem', color: 'black', display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '200px' }}>
+                  <h1>404: Ruta no encontrada!</h1>
+                </main>
+              }
+            />
+          </Routes>
         </div>
       </HashRouter>
       {/* </Router> */}

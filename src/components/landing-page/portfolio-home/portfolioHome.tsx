@@ -4,10 +4,10 @@ import { Box, Card, CardActionArea, CardMedia, Grid, Stack, Typography } from "@
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
 import profileImg from "../../../assets/profileImg.jpg"
-import facebook from "../../../assets/facebook.png"
+// import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
-import instagram from "../../../assets/Instagram.png"
-import github from "../../../assets/github.png"
+// import instagram from "../../../assets/Instagram.png"
+// import github from "../../../assets/github.png"
 import linkedIn from "../../../assets/LinkedIn.png"
 import academia from "../../../assets/academia.png"
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
@@ -27,7 +27,8 @@ function SocialMediaIcon({ link, image }: any) {
         height="30"
         width="30"
         src={image}
-        alt="social media image"
+        loading="lazy"
+        alt=""
       />
     </Link>
   )
@@ -142,7 +143,7 @@ export function PortfolioHome() {
                     position: 'absolute', // Ensure it's positioned correctly over the CardMedia
                     top: 0,
                     left: 0,
-                    backgroundColor: 'rgba(17, 25, 40, 0.65)',
+                    backgroundColor: 'rgba(17, 25, 40, 0.6)',
                     animation: `filterAnimation 4s infinite alternate`,
                     '@keyframes filterAnimation': {
                       '0%': {
@@ -180,10 +181,10 @@ export function PortfolioHome() {
 
 
                   <Stack direction={'row'} alignItems={'bottom'} alignContent={'end'} sx={{
-                        '@media (max-width: 450px)': {
-                          flexDirection: 'column',
-                        },
-                      }}>
+                    '@media (max-width: 450px)': {
+                      flexDirection: 'column',
+                    },
+                  }}>
                     <Box sx={{
                       marginTop: "-100px",
                       marginLeft: '15px',
@@ -203,8 +204,9 @@ export function PortfolioHome() {
                         }}
                         height="150px"
                         width="150px"
+                        loading="lazy"
                         src={profileImg}
-                        alt="front image"
+                        alt=""
                       />
 
 
@@ -212,7 +214,7 @@ export function PortfolioHome() {
                     </Box>
                     <Box marginLeft='180px' height={'70px'}></Box>
 
-                    <Stack 
+                    <Stack
                       direction={'row'}
                       flexWrap={'wrap'}
                       sx={{
@@ -222,11 +224,12 @@ export function PortfolioHome() {
                         },
                       }} >
                       <SocialMediaIcon link="https://www.linkedin.com/in/aikoz" image={linkedIn} />
-                      <SocialMediaIcon link="https://github.com/Aikoz" image={github} />
-                      <SocialMediaIcon link="https://apps.apple.com/no/developer/ciudad-maderas/id1511022961" image={apple} />
-                      <SocialMediaIcon link="https://www.instagram.com/aikoz/" image={instagram} />
-                      <SocialMediaIcon link="https://www.facebook.com/jlfo.aikoz/" image={facebook} />
                       <SocialMediaIcon link="https://independent.academia.edu/JLFO" image={academia} />
+                      <SocialMediaIcon link="https://apps.apple.com/no/developer/ciudad-maderas/id1511022961" image={apple} />
+                      {/* <SocialMediaIcon link="https://github.com/Aikoz" image={github} /> */}
+                      {/* <SocialMediaIcon link="https://www.instagram.com/aikoz/" image={instagram} /> */}
+                      {/* <SocialMediaIcon link="https://www.facebook.com/jlfo.aikoz/" image={facebook} /> */}
+                      {/* <SocialMediaIcon link="https://www.facebook.com/jlfo.aikoz/" image={facebook} /> */}
                       {/* https://www.academia.edu/35108805/Sistema_de_detecci%C3%B3n_de_no_estacionalidad_en_datos_temporales */}
 
                     </Stack>
@@ -264,7 +267,7 @@ export function PortfolioHome() {
                 to="/landingPage/portfolioReadings/"
                 style={{ textDecoration: 'none', color: 'lightgray' }}
               >
-                <GlitchTypography text={'Check out more about my readings →'} />
+                <GlitchTypography text={'Check out more about my published research papers →'} />
               </Link>
 
               <Typography

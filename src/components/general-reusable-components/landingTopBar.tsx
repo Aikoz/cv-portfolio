@@ -8,11 +8,11 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 
 import MoreIcon from '@mui/icons-material/MoreVert';
 import BrandImg from '../../assets/whiteblack.png'
 import { Link } from 'react-router-dom';
+import { AccountCircle } from '@mui/icons-material';
 
 export default function LandingTopBar(props: any) {
   const { handleDrawerOpen, open, closeSession, drawerWidth, sharedTitle, isLogginActive, withMenu } = props
