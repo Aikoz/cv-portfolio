@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { Box, Card, CardActionArea, CardMedia, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-import profileImg from "../../../assets/profileImg.jpg"
+import profileImg from "../../../assets/profileImg1.jpg"
 // import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
 // import instagram from "../../../assets/Instagram.png"

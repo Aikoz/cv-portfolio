@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
 import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypography";
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
+import { Document, Page } from 'react-pdf';
 
 const ExperienceItem = ({ title, company, dateRange, tasks }: any) => (
   <Box>
@@ -20,6 +21,7 @@ const ExperienceItem = ({ title, company, dateRange, tasks }: any) => (
         marginBottom: '17px',
       }}
     >
+      
       <Typography
         variant="h6"
         sx={{
@@ -313,6 +315,13 @@ export function PortfolioCV() {
 
   const { setSharedTitle, setLoading } = useOutletContext<OutletContextType>();
 
+  const [numPages, setNumPages] = useState<number>();
+  const [pageNumber, setPageNumber] = useState<number>(1);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages);
+  }
+
   useEffect(() => {
     setSharedTitle('Resumé');
     setLoading(false);
@@ -327,7 +336,15 @@ export function PortfolioCV() {
 
         <Grid item md={12} xl={10} >
           <Stack >
+          <div>
+      <Document file="../assets/resume.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+        <Page pageNumber={pageNumber} />
 
+      </Document>
+      <p>
+        Page {pageNumber} of {numPages}
+      </p>
+    </div>
             <CyberpunkTypography text='José Luis Florencio Ortíz'>
 
             </CyberpunkTypography>
