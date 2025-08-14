@@ -399,7 +399,8 @@ function SocialMediaIcon({ link, image }: any) {
           src={image}
           alt="social media image"
         />
-        <CyberpunkTypography text={'Selected projects'} />
+                      <CyberpunkTypography> Selected projects </CyberpunkTypography>
+
 
       </Stack>
 

@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { Box, Card, CardActionArea, CardMedia, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
-import profileImg from "../../../assets/profileImg1.jpg"
+import profileImg from "../../../assets/profile.jpg"
 // import facebook from "../../../assets/facebook.png"
 import apple from "../../../assets/appleDeveloper.png"
 // import instagram from "../../../assets/Instagram.png"
@@ -11,6 +11,7 @@ import apple from "../../../assets/appleDeveloper.png"
 import linkedIn from "../../../assets/LinkedIn.png"
 import academia from "../../../assets/academia.png"
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
+import GlitchTypographyBody from "../../../utils/glitchTypographyBody";
 // import { Delete, EditNote } from "@mui/icons-material";
 // import { server } from "../../../utils/constants";
 // import { DateFormatter } from '../../../utils/dateFormatter'
@@ -101,7 +102,8 @@ export function PortfolioHome() {
 
             <Stack spacing={'1%'}>
               {/* <div style={{ position: 'relative', margin: '50px' }}> */}
-              <CyberpunkTypography text={'Hi, I\'m Luis Florencio'} />
+              <CyberpunkTypography> Hi, I'm Luis Florencio </CyberpunkTypography>
+              
               {/* </div> */}
 
 
@@ -245,8 +247,15 @@ export function PortfolioHome() {
                 </CardActionArea>
 
               </Card>
-
-              <Typography
+              <GlitchTypographyBody fontSize="25px">
+                Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
+                </GlitchTypographyBody>
+                <GlitchTypographyBody fontSize="25px">
+                My main focus is to building clean, simple and user friendly interfaces,
+                to bring aplications to the users that they could use as tools in their everyday lives.
+                I prefer to provide users with all the information on how to use an app through intuitive design rather than written instructions.
+                I know it’s not always possible, but whenever it is, I make sure to take advantage of it.                </GlitchTypographyBody>
+              {/* <Typography
                 variant="subtitle1"
               >
                 Senior Systems Analyst with a focus on mobile applications, Swift application developer expert
@@ -260,7 +269,7 @@ export function PortfolioHome() {
                 to bring aplications to the users that they could use as tools in their everyday lives.
                 I prefer to provide users with all the information on how to use an app through intuitive design rather than written instructions.
                 I know it’s not always possible, but whenever it is, I make sure to take advantage of it.
-              </Typography>
+              </Typography> */}
 
 
               <Link
@@ -270,14 +279,14 @@ export function PortfolioHome() {
                 <GlitchTypography text={'Check out more about my published research papers →'} />
               </Link>
 
-              <Typography
+              {/* <Typography
                 sx={{
                   fontFamily: 'Libre Franklin, Arial, sans-serif',
                   fontWeight: '200',
                   fontSize: '12px',
                   width: '100%',
                   color: 'lightgray',
-                }} >{"\"Portfolio under development. Expect great things to come.\""}</Typography>
+                }} >{"\"Portfolio under development. Expect great things to come.\""}</Typography> */}
 
 
 

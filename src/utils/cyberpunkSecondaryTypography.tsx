@@ -46,7 +46,7 @@ const glitchAnimationSoft = keyframes`
 `;
 
 // Definir los colores que se usarán en el glitch
-const colors = ['green', 'darkgreen', 'darkblue', 'black'];
+const colors = ['white', 'darkred', 'lightgreen', 'black'];
 
 // Definir el componente para el texto completo con animación glitch
 const GlitchText = styled.div`

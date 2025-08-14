@@ -10,7 +10,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import MoreIcon from '@mui/icons-material/MoreVert';
-import BrandImg from '../../assets/whiteblack.png'
+import BrandImg from '../../assets/NOHP-W-Simbols.png'
 import { Link } from 'react-router-dom';
 import { AccountCircle } from '@mui/icons-material';
 

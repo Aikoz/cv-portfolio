@@ -36,7 +36,8 @@ function SocialMediaIcon({ link, image }: any) {
           src={image}
           alt="social media image"
         />
-        <CyberpunkTypography text={'Academia'} />
+
+        <CyberpunkTypography> Academy</CyberpunkTypography>
 
       </Stack>
 
@@ -91,7 +92,7 @@ export function PortfolioReadings() {
                 <Link to={article.link}
                   target="_blank">
                   <Article key={index} ref={(el) => (articleRefs.current[index] = el)}>
-                    <CyberpunkTypography text={'_.    -'} />
+                    <CyberpunkTypography> _.    -</CyberpunkTypography>
                     <Typography
                       sx={{
                         fontFamily: 'Libre Franklin, Arial, sans-serif',

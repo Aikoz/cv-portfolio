@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
-import {  Grid, Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
 import academia from "../../../assets/academia.png"
@@ -26,14 +26,14 @@ function SocialMediaIcon({ link, image }: any) {
 
     >
       <Stack direction={'row'}>
-      <img
-        style={{ borderRadius: '10px', margin: '-15px 20px 20px 0px' }}
-        height="50"
-        width="50"
-        src={image}
-        alt="social media image"
-      />
-      <CyberpunkTypography text={'Academia'} />
+        <img
+          style={{ borderRadius: '10px', margin: '-15px 20px 20px 0px' }}
+          height="50"
+          width="50"
+          src={image}
+          alt="social media image"
+        />
+        <CyberpunkTypography> Academia </CyberpunkTypography>
 
       </Stack>
 
@@ -56,12 +56,16 @@ export function PortfolioReadings() {
 
   }, [])
   const articles = [
-    { title: 'Sistema de detección de no estacionalidad en datos temporales',
+    {
+      title: 'Sistema de detección de no estacionalidad en datos temporales',
       link: 'https://www.academia.edu/35108805/Sistema_de_detecci%C3%B3n_de_no_estacionalidad_en_datos_temporales',
-      content: 'Los datos temporales o series de tiempo son aquellos que son registrados en forma periódica derivados del estudio de algún fenómeno de interés, en diferentes dominios como pueden ser el médico, financiero, industrial, por mencionar algunos. El análisis de este tipo de datos es importante debido a que con base en dicho análisis se pueden tomar decisiones para prevenir o disminuir los efectos de la ocurrencia del fenómeno estudiado. Existen diferentes métodos de análisis de este tipo de datos pero...' },
-    { title: 'Minería de datos para mejorar la construcción de sistemas tecnológicos', 
+      content: 'Los datos temporales o series de tiempo son aquellos que son registrados en forma periódica derivados del estudio de algún fenómeno de interés, en diferentes dominios como pueden ser el médico, financiero, industrial, por mencionar algunos. El análisis de este tipo de datos es importante debido a que con base en dicho análisis se pueden tomar decisiones para prevenir o disminuir los efectos de la ocurrencia del fenómeno estudiado. Existen diferentes métodos de análisis de este tipo de datos pero...'
+    },
+    {
+      title: 'Minería de datos para mejorar la construcción de sistemas tecnológicos',
       link: 'https://www.academia.edu/35054748/Miner%C3%ADa_de_datos_para_mejorar_la_construcci%C3%B3n_de_sistemas_tecnol%C3%B3gicos',
-      content: 'La minería de datos es el proceso de descubrir conocimiento interesante a partir del análisis de grandes cantidades de información generalmente almacenadas en bases de datos. Existen desarrollos de sistemas tecnológicos enfocados al estudio de algún fenómeno de interés, los cuales se encargan de capturar información en abundancia pero muchas veces se desconoce si dicha información es de importancia para el estudio de dicho fenómeno, la información capturada por dichos sistemas generalmente...' },
+      content: 'La minería de datos es el proceso de descubrir conocimiento interesante a partir del análisis de grandes cantidades de información generalmente almacenadas en bases de datos. Existen desarrollos de sistemas tecnológicos enfocados al estudio de algún fenómeno de interés, los cuales se encargan de capturar información en abundancia pero muchas veces se desconoce si dicha información es de importancia para el estudio de dicho fenómeno, la información capturada por dichos sistemas generalmente...'
+    },
   ];
 
   const articleRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -74,35 +78,36 @@ export function PortfolioReadings() {
       </Grid>
       <Grid item md={10} xl={10}>
         <Stack spacing={1} padding={'6vw 10vw 10vw 0vw'}>
-        <SocialMediaIcon link="https://independent.academia.edu/JLFO" image={academia} />
+          <SocialMediaIcon link="https://independent.academia.edu/JLFO" image={academia} />
 
           <Container>
 
             <div>
               {articles.map((article, index) => (
-                <Link key={index}  to={article.link}
-                target="_blank">
-                <Article key={index} ref={(el) => (articleRefs.current[index] = el)}>
-                  <CyberpunkTypography text={'_.    -'} />
-                  <Typography
-                    sx={{
-                      fontFamily: 'Libre Franklin, Arial, sans-serif',
-                      fontWeight: '400',
-                      fontSize: '30px',
-                      width: '100%',
-                      mt: 2,
-                      color: 'lightgray',
-                    }} >{article.title}</Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: 'Libre Franklin, Arial, sans-serif',
-                      fontWeight: '200',
-                      fontSize: '15px',
-                      width: '100%',
-                      color: 'lightgray',
-                    }} >{article.content}</Typography>
+                <Link key={index} to={article.link}
+                  target="_blank">
+                  <Article key={index} ref={(el) => (articleRefs.current[index] = el)}>
+                    <CyberpunkTypography> _.    -</CyberpunkTypography>
 
-                </Article>
+                    <Typography
+                      sx={{
+                        fontFamily: 'Libre Franklin, Arial, sans-serif',
+                        fontWeight: '400',
+                        fontSize: '30px',
+                        width: '100%',
+                        mt: 2,
+                        color: 'lightgray',
+                      }} >{article.title}</Typography>
+                    <Typography
+                      sx={{
+                        fontFamily: 'Libre Franklin, Arial, sans-serif',
+                        fontWeight: '200',
+                        fontSize: '15px',
+                        width: '100%',
+                        color: 'lightgray',
+                      }} >{article.content}</Typography>
+
+                  </Article>
                 </Link>
               ))}
             </div>
@@ -112,11 +117,11 @@ export function PortfolioReadings() {
 
 
           <Link
-                to="/landingPage/portfolioProjects/"
-                style={{ textDecoration: 'none', color: 'lightgray' }}
-              >
-                <GlitchTypography text={'Go to my projects →'}/>
-              </Link>
+            to="/landingPage/portfolioProjects/"
+            style={{ textDecoration: 'none', color: 'lightgray' }}
+          >
+            <GlitchTypography text={'Go to my projects →'} />
+          </Link>
 
         </Stack>
       </Grid>

@@ -25,7 +25,7 @@
     "dat.gui": "^0.7.9",
     "dayjs": "^1.11.11",
     "dayjs-plugin-utc": "^0.1.2",
-    "pdf-viewer-reactjs": "^2.2.3",
+    "pdf-viewer-reactjs": "^1.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pdf": "^9.1.1",
@@ -53,6 +53,6 @@
     "globals": "^15.1.0",
     "typescript": "^5.2.2",
     "typescript-eslint": "^7.8.0",
-    "vite": "^5.2.0"
+    "vite": "^7.0.6"
   }
 }

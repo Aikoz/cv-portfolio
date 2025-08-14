@@ -32,9 +32,9 @@ export function PortfolioCV() {
         <Grid item md={12} xl={10} >
           <Stack >
 
-            <CyberpunkTypography text='About my working experience:'>
+            
+          <CyberpunkTypography>About my working experience:</CyberpunkTypography>
 
-            </CyberpunkTypography>
 
             <Box sx={{
               height: '100vh',
@@ -67,10 +67,10 @@ export function PortfolioCV() {
 
       <Link
 
-        to="/landingPage/portfolioContact/"
+        to="/landingPage/portfolioHome/"
         style={{ textDecoration: 'none', color: 'lightgray' }}
       >
-        <GlitchTypography text={'Contact me →'} />
+        <GlitchTypography text={'Go back home →'} />
       </Link>
     </Stack>
 

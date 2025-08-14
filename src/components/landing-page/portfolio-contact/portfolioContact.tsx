@@ -42,7 +42,7 @@ export function PortfolioContact() {
 
       </Grid>
       <Grid item md={10} xl={10}>
-      <CyberpunkTypography text={'_.    -'} />
+      <CyberpunkTypography>_.    -'</CyberpunkTypography>
         <Typography
           sx={{
             fontFamily: 'Libre Franklin, Arial, sans-serif',
