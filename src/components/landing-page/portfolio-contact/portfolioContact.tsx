@@ -67,13 +67,13 @@ export function PortfolioContact() {
         >
           aikoz_1@live.com
         </Typography>
-        <Link
+        {/* <Link
 
           to="/landingPage/portfolioHome/"
           style={{ textDecoration: 'none', color: 'lightgray' }}
         >
           <GlitchTypography text={'Go back home →'} />
-        </Link>
+        </Link> */}
       </Grid>
     </Grid>
     </Box>

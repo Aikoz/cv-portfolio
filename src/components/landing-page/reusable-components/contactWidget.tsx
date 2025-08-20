@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypography";
 
-export function ContactWidget(props: any) {
-  const { listData } = props
+export function ContactWidget() {
   useEffect(() => {
   }, [])
   const [contactOpen, setContactOpen] = useState(false);
@@ -17,7 +16,6 @@ export function ContactWidget(props: any) {
           right: 16,
           zIndex: 2000,
           pointerEvents: contactOpen ? "auto" : "none", // solo interactúa si está abierto
-          // backgroundColor: "rgba(80, 74, 74, 0.38)", // fondo transparente
         }}
       >
         <Box
@@ -25,8 +23,8 @@ export function ContactWidget(props: any) {
             transition: "all 0.35s ease-in-out",
             transformOrigin: "bottom right",
             transform: contactOpen ? "scale(1)" : "scale(0.5)",
-            width: contactOpen ? "1000px" : "900px", // solo ocupa lo que mide el botón
-            height: contactOpen ? "auto" : "170px",
+            width: contactOpen ? "70vw" : "60vw", // solo ocupa lo que mide el botón
+            height: contactOpen ? "40vh" : "15vh",
             pointerEvents: "auto", // el botón sí recibe clics
             marginRight: "20px",
             marginBottom: "20px",

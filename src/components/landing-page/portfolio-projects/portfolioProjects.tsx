@@ -514,12 +514,12 @@ export function PortfolioProjects() {
               </Container>
             </div>
 
-            <Link
+            {/* <Link
               to="/landingPage/resume/"
               style={{ textDecoration: 'none', color: 'lightgray' }}
             >
               <GlitchTypography text={'My resumé →'} />
-            </Link>
+            </Link> */}
 
           </Stack>
         </Grid>

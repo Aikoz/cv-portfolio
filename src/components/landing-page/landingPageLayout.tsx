@@ -1,5 +1,5 @@
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
-import { Card, Box, IconButton } from '@mui/material';
+import { Card, Box, IconButton, Button } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -10,6 +10,8 @@ import { ContactWidget } from './reusable-components/contactWidget';
 import backgroundImage from '../../assets/fondo2.jpg';
 import LandingTopBar from '../general-reusable-components/landingTopBar';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import CyberpunkTypography from '../../utils/cyberpunkTypography';
+import CyberpunkSecondaryTypography from '../../utils/cyberpunkSecondaryTypography';
 
 const drawerWidth = '20vw';
 
@@ -51,18 +53,18 @@ export function LandingPageLayout({ setIsLoggedIn,
   const location = useLocation();
 
   useEffect(() => {
-   if (isLoggedIn) {
+    if (isLoggedIn) {
       localStorage.setItem('lastVisitedPath', location.pathname + location.search);
     }
-    
+
     setLoading(true); // Activa el loader cuando cambia la ruta
 
     const timeout = setTimeout(() => {
       setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
     }, 1500); // 1000ms = 1 segundo
-  
+
     return () => clearTimeout(timeout);
-    
+
   }, [location, isLoggedIn, setLoading]);
 
   const theme = useTheme();
@@ -76,7 +78,7 @@ export function LandingPageLayout({ setIsLoggedIn,
       navigate(lastVisitedPath);
     }
 
-  }, [isLoggedIn, ]);
+  }, [isLoggedIn,]);
 
   const [open, setOpen] = useState(false);
   const handleDrawerOpen = () => {
@@ -99,10 +101,10 @@ export function LandingPageLayout({ setIsLoggedIn,
   useEffect(() => {
 
     if (boxRef.current) {
-        setTimeout(() => {
+      setTimeout(() => {
         boxRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    }, 100); 
-    
+      }, 100);
+
 
     }
 
@@ -205,14 +207,58 @@ export function LandingPageLayout({ setIsLoggedIn,
             </Box>
           </Box>
         </Card>
+                <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
       </Main>
 
+      <Box>
+        <Box
+          sx={{
+            width: '50vw',
+            padding: '20px',
+            position: "fixed",
+            bottom: { xs: 92, md: 30 },
+            left: 32,
+            zIndex: 2000,
+            display: 'flex', 
+            justifyContent: 'space-around', 
+            alignItems: 'center', 
+            height: '10px',
+            borderRadius: "0.45rem",
+            boxShadow: 4,
+            cursor: "pointer",
+            backdropFilter: 'blur(16px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+            border: '1px solid rgba(255, 255, 255, 0.23)',
+            backgroundColor: "rgba(170, 127, 127, 0.11)",
+            overflow: "hidden",
+            pointerEvents: "auto"
+          }}
+        >
+          <Button onClick={() => navigate('/landingPage/portfolioHome')}>
+            <CyberpunkSecondaryTypography >🏠  Home</CyberpunkSecondaryTypography>
+          </Button>
+          <Button onClick={() => navigate('/landingPage/portfolioProjects')}>
+            <CyberpunkSecondaryTypography >🏢  Projects</CyberpunkSecondaryTypography>
+          </Button>
+          <Button onClick={() => navigate('/landingPage/portfolioReadings')}>
+            <CyberpunkSecondaryTypography >📔  Readings </CyberpunkSecondaryTypography>
+          </Button>
+          <Button onClick={() => navigate('/landingPage/resume')}>
+            <CyberpunkSecondaryTypography >💼  Résumé </CyberpunkSecondaryTypography>
+          </Button>
+        </Box>
 
-      <ContactWidget></ContactWidget>
+        {/* Contact Widget */}
+        <ContactWidget />
 
 
+
+      </Box>
     </Box>
   );
 }

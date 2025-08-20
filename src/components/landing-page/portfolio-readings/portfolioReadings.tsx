@@ -114,12 +114,12 @@ export function PortfolioReadings() {
 
 
 
-          <Link
+          {/* <Link
             to="/landingPage/portfolioProjects/"
             style={{ textDecoration: 'none', color: 'lightgray' }}
           >
             <GlitchTypography text={'Go to my projects →'} />
-          </Link>
+          </Link> */}
 
         </Stack>
       </Grid>

@@ -14,7 +14,7 @@ const Loader = () => (
             
                       <CyberpunkSecondaryTypography>LOADING...</CyberpunkSecondaryTypography>
 
-            <CyberpunkTypography>*__¨-</CyberpunkTypography>
+            <CyberpunkTypography>*_⏳¨-</CyberpunkTypography>
         </Stack>
 
 

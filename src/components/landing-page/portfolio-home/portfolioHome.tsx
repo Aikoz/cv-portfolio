@@ -269,12 +269,12 @@ export function PortfolioHome() {
               </Typography> */}
 
 
-              <Link
+              {/* <Link
                 to="/landingPage/portfolioReadings/"
                 style={{ textDecoration: 'none', color: 'lightgray' }}
               >
                 <GlitchTypography text={'Check out more about my published research papers →'} />
-              </Link>
+              </Link> */}
 
               {/* <Typography
                 sx={{

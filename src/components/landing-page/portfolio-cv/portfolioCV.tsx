@@ -63,13 +63,13 @@ export function PortfolioCV() {
 
       </Grid>
 
-      <Link
+      {/* <Link
 
         to="/landingPage/portfolioHome/"
         style={{ textDecoration: 'none', color: 'lightgray' }}
       >
         <GlitchTypography text={'Go back home →'} />
-      </Link>
+      </Link> */}
     </Stack>
 
 

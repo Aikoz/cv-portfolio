@@ -52,6 +52,8 @@ const colors = ['white', 'darkred', 'lightgreen', 'black'];
 const GlitchText = styled.div`
   font-family: 'Libre Franklin', Arial, sans-serif;
   font-weight: 600;
+  font-size: 15px;
+
 
   margin-top: 15px;
   margin-bottom: 15px;
@@ -91,6 +93,10 @@ const GlitchText = styled.div`
     text-shadow: -2px 0 ${colors[2]};
     clip: rect(85px, 550px, 140px, 0);
     animation: ${glitchAnimationSoft} 1s infinite;
+  }
+       @media (max-width: 768px) {
+    font-weight: 100;
+    font-size: 10px; /* Tamaño de fuente más pequeño para pantallas móviles */
   }
 `;
 
