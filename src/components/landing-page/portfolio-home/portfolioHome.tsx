@@ -57,9 +57,6 @@ export function PortfolioHome() {
       if (loadedImages === totalImages) {
         setAllImagesLoaded(true);
         console.log('All images loaded');
-        setLoading(false);
-
-        // Puedes realizar otras acciones aquí cuando todas las imágenes se hayan cargado
       }
     };
 

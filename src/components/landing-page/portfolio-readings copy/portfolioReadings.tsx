@@ -56,8 +56,6 @@ export function PortfolioReadings() {
 
   useEffect(() => {
     setSharedTitle('My readings');
-    setLoading(false);
-
   }, [])
   const articles = [
     {

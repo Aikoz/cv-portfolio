@@ -421,8 +421,6 @@ export function PortfolioProjects() {
 
   useEffect(() => {
     setSharedTitle('Projects');
-    setLoading(false);
-
   }, [])
   useEffect(() => {
     const CONTAINER = document.querySelector('.container');

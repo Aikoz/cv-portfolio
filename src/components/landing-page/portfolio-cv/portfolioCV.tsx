@@ -19,8 +19,6 @@ export function PortfolioCV() {
 
   useEffect(() => {
     setSharedTitle('Resumé');
-    setLoading(false);
-
   }, [])
 
 

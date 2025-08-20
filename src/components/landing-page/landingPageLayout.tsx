@@ -51,21 +51,32 @@ export function LandingPageLayout({ setIsLoggedIn,
   const location = useLocation();
 
   useEffect(() => {
-    if (isLoggedIn) {
+   if (isLoggedIn) {
       localStorage.setItem('lastVisitedPath', location.pathname + location.search);
     }
-  }, [location, isLoggedIn]);
+    
+           setLoading(true); // Activa el loader cuando cambia la ruta
+
+    const timeout = setTimeout(() => {
+      setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
+    }, 1000); // 1000ms = 1 segundo
+  
+    return () => clearTimeout(timeout);
+    
+  }, [location, isLoggedIn, setLoading]);
 
   const theme = useTheme();
   const navigate = useNavigate();
 
   useEffect(() => {
+
     const lastVisitedPath = localStorage.getItem('lastVisitedPath');
     if (isLoggedIn && lastVisitedPath && lastVisitedPath !== '/') {
       window.history.replaceState(null, '', lastVisitedPath);
       navigate(lastVisitedPath);
     }
-  }, [isLoggedIn]);
+
+  }, [isLoggedIn, ]);
 
   const [open, setOpen] = useState(false);
   const handleDrawerOpen = () => {
@@ -86,13 +97,16 @@ export function LandingPageLayout({ setIsLoggedIn,
   const boxRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
   useEffect(() => {
+
     if (boxRef.current) {
-          setTimeout(() => {
-      boxRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        setTimeout(() => {
+        boxRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }, 100); 
     
+
     }
-  }, [pathname]);
+
+  }, [pathname, setLoading]);
 
   return (
     <Box sx={{

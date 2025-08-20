@@ -86,6 +86,7 @@ export function Dashboard({ setIsLoggedIn, isLoggedIn, sharedTitle, setSharedTit
   const location = useLocation();
 
   useEffect(() => {
+
     // Guardar la URL actual en localStorage
     if (isLoggedIn) {
       localStorage.setItem('lastVisitedPath', location.pathname + location.search);

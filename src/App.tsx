@@ -31,14 +31,17 @@ export function App() {
     return turnFromStorage ? true : true;
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    //const handleStart = () => setLoading(true);
-    //const handleComplete = () => setLoading(false);
+       setLoading(true); // Activa el loader cuando cambia la ruta
 
-    return () => {
-    };
+    const timeout = setTimeout(() => {
+      setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
+    }, 1000); // 1000ms = 1 segundo
+  
+    return () => clearTimeout(timeout);
+
   }, []);
 
 

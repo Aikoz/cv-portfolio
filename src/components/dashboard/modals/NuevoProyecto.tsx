@@ -35,7 +35,6 @@ export const NuevoProyecto = ({getProjectData}:any) => {
             return response.json()
         })
             .then((data) => {
-                // setLoading(false);
                 if (data[0].code) {
                     getProjectData()
                 } else {

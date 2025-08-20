@@ -26,7 +26,6 @@ export function PortfolioContact() {
   const { setSharedTitle, setLoading } = useOutletContext<OutletContextType>();
   useEffect(() => {
     setSharedTitle('Contact');
-    setLoading(false);
 
   }, [])
 

@@ -32,9 +32,6 @@ const Login = ({ setIsLoggedIn }: any) => {
     const deviceId = "deviceid"
     const encodedpass = password as string
     const sha256Pass = await sha256(encodedpass);
-
-    // setLoading(true);
-
     const response = await fetch(server.dev_url +'/login', {
 
       method: 'POST',

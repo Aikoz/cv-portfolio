@@ -265,7 +265,6 @@ export const NuevoEnvio = (props: any) => {
             })
                 .then((data) => {
                     console.dir(data)
-                    // setLoading(false);
                     if (data[0].code == 1) {
                         getEnviosData()
 
@@ -317,7 +316,6 @@ export const NuevoEnvio = (props: any) => {
                 return response.json()
             })
                 .then((data) => {
-                    // setLoading(false);
                     if (data[0].code == 1) {
                         getEnviosData()
 

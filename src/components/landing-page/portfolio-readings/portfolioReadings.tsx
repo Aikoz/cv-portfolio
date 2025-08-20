@@ -52,8 +52,6 @@ export function PortfolioReadings() {
 
   useEffect(() => {
     setSharedTitle('Published research papers');
-    setLoading(false);
-
   }, [])
   const articles = [
     {
