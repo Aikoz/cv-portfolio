@@ -17,7 +17,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   open?: boolean;
 }>(({ theme, open }) => ({
   flexGrow: 1,
-  paddingTop: '145px',
+  paddingTop: '0px',
   width: `100%`,
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
@@ -87,7 +87,13 @@ export function LandingPageLayout({ setIsLoggedIn,
   const { pathname } = useLocation();
   useEffect(() => {
     if (boxRef.current) {
-      boxRef.current.scrollIntoView({ behavior: 'smooth' });
+      // Usar scrollIntoView primero
+      boxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+
+      // Ajuste adicional con setTimeout para esperar a que scrollIntoView termine
+      setTimeout(() => {
+        window.scrollBy(0, -145); // Ajusta el desplazamiento para tener en cuenta los 145px
+      }, 5000); // Puede ajustar el tiempo si es necesario
     }
   }, [pathname]);
 
@@ -163,7 +169,13 @@ export function LandingPageLayout({ setIsLoggedIn,
       </Drawer>
 
       {/* Contenido principal */}
-      <Main open={open}>
+      <Main open={open} ref={boxRef}>
+        <br />
+        <DrawerHeader />
+
+        <DrawerHeader />
+        <br />
+
         <Card variant="outlined" sx={{
           maxWidth: '96%',
           minHeight: '14.25vh',
@@ -177,15 +189,17 @@ export function LandingPageLayout({ setIsLoggedIn,
           margin: '0% 2% 0% 2%'
         }}>
           <Box>
-            <Box ref={boxRef} sx={{ p: 1, backgroundColor: 'transparent', borderRadius: 1 }}>
+            <Box sx={{ p: 1, backgroundColor: 'transparent', borderRadius: 1 }}>
               <Outlet context={{ setSharedTitle, setLoading }} />
             </Box>
           </Box>
         </Card>
+        <br />
+        <br />
       </Main>
 
 
-        <ContactWidget></ContactWidget>
+      <ContactWidget></ContactWidget>
 
 
     </Box>
