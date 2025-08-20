@@ -24,10 +24,10 @@ export function ContactWidget() {
             transformOrigin: "bottom right",
             transform: contactOpen ? "scale(1)" : "scale(0.5)",
             width: contactOpen ? "70vw" : "60vw", // solo ocupa lo que mide el botón
-            height: contactOpen ? "40vh" : "15vh",
+            height: contactOpen ? "25vh" : "15vh",
             pointerEvents: "auto", // el botón sí recibe clics
             marginRight: "20px",
-            marginBottom: "20px",
+            marginBottom: contactOpen ? "45px" : "10px",
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
