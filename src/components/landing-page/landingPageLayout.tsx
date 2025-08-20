@@ -87,13 +87,10 @@ export function LandingPageLayout({ setIsLoggedIn,
   const { pathname } = useLocation();
   useEffect(() => {
     if (boxRef.current) {
-      // Usar scrollIntoView primero
-      boxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-
-      // Ajuste adicional con setTimeout para esperar a que scrollIntoView termine
-      setTimeout(() => {
-        window.scrollBy(0, -145); // Ajusta el desplazamiento para tener en cuenta los 145px
-      }, 5000); // Puede ajustar el tiempo si es necesario
+          setTimeout(() => {
+      boxRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }, 100); 
+    
     }
   }, [pathname]);
 
