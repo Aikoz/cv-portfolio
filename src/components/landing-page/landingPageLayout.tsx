@@ -55,11 +55,11 @@ export function LandingPageLayout({ setIsLoggedIn,
       localStorage.setItem('lastVisitedPath', location.pathname + location.search);
     }
     
-           setLoading(true); // Activa el loader cuando cambia la ruta
+    setLoading(true); // Activa el loader cuando cambia la ruta
 
     const timeout = setTimeout(() => {
       setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
-    }, 1000); // 1000ms = 1 segundo
+    }, 1500); // 1000ms = 1 segundo
   
     return () => clearTimeout(timeout);
     

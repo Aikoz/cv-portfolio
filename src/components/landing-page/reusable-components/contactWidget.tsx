@@ -1,17 +1,15 @@
-      import { Box, Paper, Typography, IconButton } from "@mui/material";
-      import { useEffect, useState } from "react";
-      import CyberpunkTypography from "../../../utils/cyberpunkTypography";
+import { Box, Paper, Typography, IconButton } from "@mui/material";
+import { useEffect, useState } from "react";
+import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypography";
 
-      export function ContactWidget(props: any) {
-          const { listData } = props
-          useEffect(() => {
-          }, [])
-       // 📌 Estado para el widget de contacto
+export function ContactWidget(props: any) {
+  const { listData } = props
+  useEffect(() => {
+  }, [])
   const [contactOpen, setContactOpen] = useState(false);
-          return (
-              <>
-      {/* 📌 Widget flotante rectangular con texto */}
+  return (
+    <>
       <Box
         sx={{
           position: "fixed",
@@ -71,8 +69,8 @@ import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypog
               <>
                 {/* Encabezado */}
                 <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-                  
-                                  <CyberpunkTypography > &lt;&#47;: - Are you minding a project?   </CyberpunkTypography>
+
+                  <CyberpunkTypography > &lt;&#47;: - Are you minding a project?   </CyberpunkTypography>
 
                   <IconButton
                     size="small"
@@ -81,7 +79,7 @@ import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypog
                       setContactOpen(false);
                     }}
                   >
-                    <CyberpunkSecondaryTypography text="X">  </CyberpunkSecondaryTypography>
+                    <CyberpunkSecondaryTypography> X </CyberpunkSecondaryTypography>
 
                   </IconButton>
                 </Box>
@@ -135,17 +133,16 @@ import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypog
                 {/* <Chat sx={{ fontSize: 50, marginLeft: "35px" }} /> */}
                 <CyberpunkTypography > &lt;&#47;: Let’s connect &gt;  </CyberpunkTypography>
               </>
-              
+
             )}
           </Paper>
         </Box>
       </Box>
-      
-      
-      
-      
-              </>
-          );
-      }
-      
-      
+
+
+
+
+    </>
+  );
+}
+

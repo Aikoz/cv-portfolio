@@ -12,7 +12,7 @@ import { Box } from '@mui/material';
 import { PortfolioReadings } from './components/landing-page/portfolio-readings/portfolioReadings';
 import { PortfolioProjects } from './components/landing-page/portfolio-projects/portfolioProjects';
 import { PortfolioContact } from './components/landing-page/portfolio-contact/portfolioContact';
-import Loader from './components/general-reusable-components/loaderSpiner';
+import Loader from './components/general-reusable-components/loader';
 
 
 // Componente para manejar la lógica de recordar la última URL visitada
@@ -38,7 +38,7 @@ export function App() {
 
     const timeout = setTimeout(() => {
       setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
-    }, 1000); // 1000ms = 1 segundo
+    }, 2500); // 1000ms = 1 segundo
   
     return () => clearTimeout(timeout);
 

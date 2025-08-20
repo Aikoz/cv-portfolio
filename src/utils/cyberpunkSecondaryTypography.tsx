@@ -95,9 +95,9 @@ const GlitchText = styled.div`
 `;
 
 // Componente principal que usa GlitchText
-const CyberpunkSecondaryTypography = ({ text }: any) => {
+const CyberpunkSecondaryTypography = ({ children }: any) => {
   return (
-    <GlitchText data-text={text}>{text}</GlitchText>
+    <GlitchText data-text={children}>{children}</GlitchText>
   );
 };
 

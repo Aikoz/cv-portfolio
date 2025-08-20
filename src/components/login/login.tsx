@@ -48,7 +48,6 @@ const Login = ({ setIsLoggedIn }: any) => {
 
     })
       .then((data) => {
-        // setLoading(false);
         if (data[0].code) {
 
           localStorage.setItem('user', JSON.stringify({ username }));
