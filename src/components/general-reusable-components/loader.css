@@ -1,12 +1,12 @@
 /* Loader.css */
 .loader {
     position: fixed;
-    margin-top: 2%;
+    margin-top: 12%;
     margin-left: 2%;
     width: 96%;
-    height: 96%;
+    height: 68%;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.596);
+    background-color: rgba(0, 0, 0, 0.908);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -24,7 +24,7 @@ export function ContactWidget() {
             transformOrigin: "bottom right",
             transform: contactOpen ? "scale(1)" : "scale(0.5)",
             width: contactOpen ? "70vw" : "60vw", // solo ocupa lo que mide el botón
-            height: contactOpen ? "25vh" : "15vh",
+            height: contactOpen ? "45vh" : "15vh",
             pointerEvents: "auto", // el botón sí recibe clics
             marginRight: "20px",
             marginBottom: contactOpen ? "45px" : "10px",
@@ -98,7 +98,15 @@ export function ContactWidget() {
                     Contact me:
                   </Typography>
                   <br />
-
+<a href="mailto:aikoz_1@live.com" style={{
+                    textDecoration: 'none', // quitar subrayado
+                    color: 'inherit', // heredar color del Typography
+                    fontFamily: 'Libre Franklin, Arial, sans-serif',
+                    fontWeight: 100,
+                    fontSize: '20px',
+                    margin: '25px'
+                  }}>✉️ Mail me</a>
+                  <br />
                   <a
                     href="https://wa.me/5215545277660"
                     target="_blank"
@@ -114,16 +122,7 @@ export function ContactWidget() {
                   >
                     📱 Send a message
                   </a>
-                  <br />
-                  <br />
-                  <a href="mailto:aikoz_1@live.com" style={{
-                    textDecoration: 'none', // quitar subrayado
-                    color: 'inherit', // heredar color del Typography
-                    fontFamily: 'Libre Franklin, Arial, sans-serif',
-                    fontWeight: 100,
-                    fontSize: '20px',
-                    margin: '25px'
-                  }}>✉️ Mail me</a>
+                  
                 </Box>
               </>
             ) : (

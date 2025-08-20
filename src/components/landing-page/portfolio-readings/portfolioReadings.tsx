@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import GlitchTypography from "../../../utils/glitchTypography";
 import academia from "../../../assets/academia.png"
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import styled from "styled-components";

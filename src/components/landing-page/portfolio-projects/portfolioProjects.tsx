@@ -236,7 +236,7 @@ article h2 {
 }
 
 .dg.ac {
-  z-index: 99999 !important;
+  z-index: 1999 !important;
 }
   .dg {
     display: none;

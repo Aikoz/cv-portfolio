@@ -10,15 +10,15 @@ const glitchAnimationSoft = keyframes`
   }
 
 
-  50% {
+  20% {
     transform: translate(0);
     opacity: 1;
   }
-  60% {
+  30% {
     transform: translate(0px, 0px) ;
     opacity: 0.8;
   }
-  70% {
+  50% {
     transform: translate(1px, 0px)  ;
     opacity: 1;
   }
@@ -46,27 +46,27 @@ const glitchAnimationSoft = keyframes`
 `;
 
 // Definir los colores que se usarán en el glitch
-const colors = ['white', 'darkred', 'lightgreen', 'black'];
+const colors = ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)', 'rgba(255, 0, 0, 0.36)', 'rgba(0, 217, 255, 0.37)'];
 
 // Definir el componente para el texto completo con animación glitch
 const GlitchText = styled.div`
   font-family: 'Libre Franklin', Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 350;
   font-size: 15px;
 
 
   margin-top: 15px;
   margin-bottom: 15px;
   color: ${colors[0]};
-  letter-spacing: 1px;
+  letter-spacing: 3px;
 
   
-  animation: ${glitchAnimationSoft} 3s infinite;
+  animation: ${glitchAnimationSoft} 6s infinite;
   text-shadow: 
     -1px 0 ${colors[1]}, 
     1px 0 ${colors[2]}, 
     0 1px ${colors[3]}, 
-    -3px 3px 0 ${colors[1]}, 
+    -1px 1px 0 ${colors[1]}, 
     3px 3px 0 ${colors[2]}, 
     3px -3px 0 ${colors[3]};
 
