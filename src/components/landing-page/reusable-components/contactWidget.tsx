@@ -1,4 +1,4 @@
-import { Box, Paper, Typography, IconButton } from "@mui/material";
+import { Box, Paper, Typography, IconButton, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypography";
@@ -24,7 +24,7 @@ export function ContactWidget() {
             transformOrigin: "bottom right",
             transform: contactOpen ? "scale(1)" : "scale(0.5)",
             width: contactOpen ? "70vw" : "60vw", // solo ocupa lo que mide el botón
-            height: contactOpen ? "45vh" : "15vh",
+            height: contactOpen ? "20vh" : "15vh",
             pointerEvents: "auto", // el botón sí recibe clics
             marginRight: "20px",
             marginBottom: contactOpen ? "45px" : "10px",
@@ -40,9 +40,9 @@ export function ContactWidget() {
               p: contactOpen ? 2 : 0,
               display: "flex",
               flexDirection: contactOpen ? "column" : "row",
-              justifyContent: contactOpen ? "space-between" : "center",
+              justifyContent: contactOpen ? "space-top" : "center",
               alignItems: contactOpen ? "flex-start" : "center",
-              gap: contactOpen ? 0 : 1,
+              gap: contactOpen ? 8 : 0,
               // padding: contactOpen ? 10 : 0,
               borderRadius: "0.9rem",
               boxShadow: 4,
@@ -56,7 +56,6 @@ export function ContactWidget() {
               color: contactOpen ? "inherit" : "white",
               transition: "all 0.35s ease-in-out",
               overflow: "hidden",
-              fontWeight: "bold",
               pointerEvents: "auto", // mantiene el clic en el botón
               padding: contactOpen ? "50px" : "0px",
 
@@ -66,7 +65,11 @@ export function ContactWidget() {
             {contactOpen ? (
               <>
                 {/* Encabezado */}
-                <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                <Box sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100%"
+                }}>
 
                   <CyberpunkTypography > &lt;&#47;: - Are you minding a project?   </CyberpunkTypography>
 
@@ -83,31 +86,37 @@ export function ContactWidget() {
                 </Box>
 
                 {/* Cuerpo */}
-                <Box sx={{ flex: 1, mt: 2 }}>
-                  <Typography
+                <Stack direction={'row'}
+                  spacing={2}
+                  justifyContent="center" // Centers items horizontally (main axis for row)
+                  alignItems="center"
+                  sx={{
+                    backgroundColor: 'rgba(0, 92, 9, 0.01)', width: '100%'
+                  }}>
+                  {/* <Typography
                     variant="h6"
                     noWrap
                     component="div"
                     sx={{
                       margin: '5px',
                       fontFamily: 'Libre Franklin, Arial, sans-serif',
-                      fontWeight: '100',
+                      fontWeight: '300',
                       fontSize: '20px'
                     }}
                   >
                     Contact me:
-                  </Typography>
-                  <br />
-<a href="mailto:aikoz_1@live.com" style={{
+                  </Typography> */}
+                  <CyberpunkSecondaryTypography><a href="mailto:aikoz_1@live.com" style={{
                     textDecoration: 'none', // quitar subrayado
                     color: 'inherit', // heredar color del Typography
                     fontFamily: 'Libre Franklin, Arial, sans-serif',
                     fontWeight: 100,
                     fontSize: '20px',
                     margin: '25px'
-                  }}>✉️ Mail me</a>
+                  }}>✉️ Mail me</a></CyberpunkSecondaryTypography>
+
                   <br />
-                  <a
+                  <CyberpunkSecondaryTypography><a
                     href="https://wa.me/5215545277660"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -121,9 +130,17 @@ export function ContactWidget() {
                     }}
                   >
                     📱 Send a message
-                  </a>
-                  
-                </Box>
+                  </a></CyberpunkSecondaryTypography>
+
+
+                </Stack>
+                <Box
+                sx={{
+                    backgroundColor: 'rgba(0, 74, 92, 0.21)', 
+                    width: '100%',
+                    height: '30px'
+                  }}
+                    ></Box>
               </>
             ) : (
               <>

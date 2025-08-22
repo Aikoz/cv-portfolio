@@ -7,6 +7,7 @@ import apple from "../../../assets/appleDeveloper.png"
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import styled from "styled-components";
 import PreviewCard from "../../../utils/previewCard";
+import GlitchTypographyBody from "../../../utils/glitchTypographyBody";
 
 const styles = `
 
@@ -19,8 +20,8 @@ font-family: 'Libre Franklin', Arial, sans-serif;
 
 :root {
   --proximity: 400;
-  --spread: 145;
-  --blur: 16;
+  --spread: 100;
+  --blur: 30;
   --gap: 32;
   --vertical: true;
   --opacity: 0;
@@ -29,15 +30,15 @@ font-family: 'Libre Franklin', Arial, sans-serif;
   --border: hsl(280 10% 50% / 1);
   --card: hsl(237 36% 10%);
   --color: hsl(240 18% 80%);
-  --border-width: 2px;
+  --border-width: 0.3px;
   --border-radius: 12px;
-  --gradient: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#eec32d 72.0000010728836deg,#ec4b4b 144.0000021457672deg,#709ab9 216.00000858306885deg,#4dffbf 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+  --gradient: conic-gradient(from 180deg at 10% 70%,hsla(0,0%,98%,1) 0deg,#eec32d 72.0000010728836deg,#ec4b4b 144.0000021457672deg,#709ab9 216.00000858306885deg,#4dffbf 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
 }
 
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 
 @property --start {
@@ -96,14 +97,14 @@ article {
 /* Para pantallas medianas (tabletas) */
 @media (min-width: 601px) and (max-width: 1024px) {
   article {
-    height: 40vh; /* Ajustar altura para tabletas */
+    height: 30vh; /* Ajustar altura para tabletas */
   }
 }
 
 /* Para pantallas grandes (PC) */
 @media (min-width: 1025px) {
   article {
-    height: 30vh; /* Ajustar altura para PC */
+    height: 20vh; /* Ajustar altura para PC */
   }
 }
 article:is(:hover, :focus-visible) {
@@ -350,25 +351,20 @@ const Article = ({ description, children, badgeList, title }: any) => (
 
       </Grid>
       <Grid item md={6} xl={6} sx={{ padding: '10px', overflow: 'hidden' }}>
-        <Typography
+        <GlitchTypographyBody
 
-          sx={{
-            fontFamily: 'Libre Franklin, Arial, sans-serif',
-            fontWeight: '400',
-            fontSize: '25px',
-            width: '100%',
-            marginBottom: '-25px'
-
-            // backgroundColor:'green',
-            // textAlign: 'center'
-          }}
+          
+          fontWeight={"400"}
+          fontSize={"25px"}
         >
           {title}
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          sx={{ marginTop: '5%' }}
-        >{description}</Typography>
+        </GlitchTypographyBody>
+        <br></br>
+        <GlitchTypographyBody
+          
+          fontSize={"15px"}
+
+        >{description}</GlitchTypographyBody>
       </Grid>
       <Grid item md={6} xl={6} sx={{ height: '89%', padding: '20px', overflow: 'hidden' }}>
         {children}
@@ -477,6 +473,7 @@ export function PortfolioProjects() {
 
     // RESTYLE();
     UPDATE(event);
+    
   }, []);
   return (
     <>

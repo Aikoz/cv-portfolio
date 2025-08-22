@@ -52,33 +52,12 @@ export function LandingPageLayout({ setIsLoggedIn,
 
   const location = useLocation();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      localStorage.setItem('lastVisitedPath', location.pathname + location.search);
-    }
 
-    setLoading(true); // Activa el loader cuando cambia la ruta
-
-    const timeout = setTimeout(() => {
-      setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
-    }, 1500); // 1000ms = 1 segundo
-
-    return () => clearTimeout(timeout);
-
-  }, [location, isLoggedIn, setLoading]);
 
   const theme = useTheme();
   const navigate = useNavigate();
 
-  useEffect(() => {
 
-    const lastVisitedPath = localStorage.getItem('lastVisitedPath');
-    if (isLoggedIn && lastVisitedPath && lastVisitedPath !== '/') {
-      window.history.replaceState(null, '', lastVisitedPath);
-      navigate(lastVisitedPath);
-    }
-
-  }, [isLoggedIn,]);
 
   const [open, setOpen] = useState(false);
   const handleDrawerOpen = () => {
@@ -98,6 +77,7 @@ export function LandingPageLayout({ setIsLoggedIn,
 
   const boxRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
+
   useEffect(() => {
 
     if (boxRef.current) {
@@ -107,8 +87,37 @@ export function LandingPageLayout({ setIsLoggedIn,
 
 
     }
+    if (isLoggedIn) {
+      localStorage.setItem('lastVisitedPath', location.pathname + location.search);
+    }
 
-  }, [pathname, setLoading]);
+    setLoading(true); // Activa el loader cuando cambia la ruta
+
+    const timeout = setTimeout(() => {
+      setLoading(false); // Detenemos el loader después de un retraso de 1 segundo (ajustable)
+    }, 1500); // 1000ms = 1 segundo
+
+    return () => clearTimeout(timeout);
+
+
+  }, [location, isLoggedIn, setLoading]);
+
+  useEffect(() => {
+
+    const lastVisitedPath = localStorage.getItem('lastVisitedPath');
+    if (isLoggedIn && lastVisitedPath && lastVisitedPath !== '/') {
+      window.history.replaceState(null, '', lastVisitedPath);
+      navigate(lastVisitedPath);
+    }
+
+  }, [isLoggedIn,]);
+
+  useEffect(() => {
+
+
+
+  }, [pathname]);
+
 
   return (
     <Box sx={{
@@ -207,7 +216,7 @@ export function LandingPageLayout({ setIsLoggedIn,
             </Box>
           </Box>
         </Card>
-                <br />
+        <br />
         <br />
         <br />
         <br />
@@ -224,9 +233,9 @@ export function LandingPageLayout({ setIsLoggedIn,
             bottom: { xs: 92, md: 30 },
             left: 32,
             zIndex: 2000,
-            display: 'flex', 
-            justifyContent: 'space-around', 
-            alignItems: 'center', 
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
             height: '10px',
             borderRadius: "0.45rem",
             boxShadow: 4,

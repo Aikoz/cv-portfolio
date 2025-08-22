@@ -1,11 +1,11 @@
 /* Loader.css */
 .loader {
     position: fixed;
-    margin-top: 12%;
-    margin-left: 2%;
-    width: 96%;
-    height: 68%;
-    border-radius: 15px;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 98%;
+    height: 98%;
+    border-radius: 35px;
     background-color: rgba(0, 0, 0, 0.908);
     display: flex;
     justify-content: center;

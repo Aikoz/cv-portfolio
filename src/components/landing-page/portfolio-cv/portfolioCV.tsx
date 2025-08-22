@@ -28,13 +28,13 @@ export function PortfolioCV() {
       <Grid container direction='row' spacing={{ xl: 2, md: 5 }}>
 
         <Grid item md={12} xl={10} >
-          <Stack >
+          <Stack spacing={5} justifyItems={"center"} >
 
             
           <CyberpunkTypography>About my working experience:</CyberpunkTypography>
 
 
-            <Box sx={{
+            {/* <Box sx={{
               height: '100vh',
               display: 'flex',
               justifyContent: 'center',
@@ -50,8 +50,12 @@ export function PortfolioCV() {
                 height="100%"
                 style={{ border: 'none' }}
               />
-            </Box>
-
+            </Box> */}
+                                  <Stack spacing={5} alignItems={"center"} justifyContent={"center"} width={"100%"}>            
+                                    <iframe src="https://docs.google.com/document/d/1SwDY5lNE9y-4ESJU-H0fbW-VisOemTYg/preview?usp=drive_link&ouid=111872008713938370947&rtpof=true&sd=true" width="80%" height="1100" frameborder="0" allowfullscreen />
+</Stack>
+  
+      
 
 
 

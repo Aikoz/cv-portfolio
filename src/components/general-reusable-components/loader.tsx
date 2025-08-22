@@ -5,7 +5,7 @@ import CyberpunkTypography from '../../utils/cyberpunkTypography';
 import CyberpunkSecondaryTypography from '../../utils/cyberpunkSecondaryTypography';
 const Loader = () => (
     <div className="loader">
-        <Stack spacing={3}>
+        <Stack spacing={3} >
             <div className="square-container">
                 {Array(9).fill(0).map((_, index) => (
                     <div key={index} className="square"></div>
@@ -14,7 +14,7 @@ const Loader = () => (
             
                       <CyberpunkSecondaryTypography>LOADING...</CyberpunkSecondaryTypography>
 
-            <CyberpunkTypography>*_⏳¨-</CyberpunkTypography>
+            <CyberpunkTypography>_'⌛︎-</CyberpunkTypography>
         </Stack>
 
 

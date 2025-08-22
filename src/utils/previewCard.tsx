@@ -77,7 +77,6 @@ const PreviewCard = ({ title, mediaType, mediaSrc }: any) => {
                     border: '1px solid rgba(36, 28, 28, 0.125)',
                     color: '#ffffffdd',
                     overflow: 'hidden'
-                    //borderRadius: '0.5rem',
 
                 }}>
 

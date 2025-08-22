@@ -16,10 +16,11 @@ const GlitchTypographyBody = ({ children, fontSize }: any) => {
 GlitchTypographyBody.propTypes = {
   children: PropTypes.node.isRequired,
   fontSize: PropTypes.string,
+  fontWeight: PropTypes.string,
 };
 
 GlitchTypographyBody.defaultProps = {
-  fontSize: '100px', // tamaño de letra predeterminado
+  fontSize: '15px', // tamaño de letra predeterminado
 };
 
 export default GlitchTypographyBody;

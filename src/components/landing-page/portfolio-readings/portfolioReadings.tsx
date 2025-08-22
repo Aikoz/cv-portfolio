@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Grid, Stack, Typography } from "@mui/material";
+import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import academia from "../../../assets/academia.png"
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
 import styled from "styled-components";
+import GlitchTypographyBody from "../../../utils/glitchTypographyBody";
+import CyberpunkSecondaryTypography from "../../../utils/cyberpunkSecondaryTypography";
+import GlitchTypography from "../../../utils/glitchTypography";
 
 const Container = styled.div`
   display: flex;
@@ -81,28 +84,18 @@ export function PortfolioReadings() {
 
             <div>
               {articles.map((article, index) => (
-                <Link key={index} to={article.link}
-                  target="_blank">
+                <Link key={index}
+                  to={article.link}
+                  target="_blank" style={{ textDecoration: 'none', textTransform: 'none' }}>
                   <Article key={index} ref={(el) => (articleRefs.current[index] = el)}>
-                    <CyberpunkTypography> _.    -</CyberpunkTypography>
+                    <Stack direction={'row'} spacing={1}>
+                      <CyberpunkSecondaryTypography>⏦🔗⌌</CyberpunkSecondaryTypography>
+                      <GlitchTypographyBody fontSize="25px">{article.title}</GlitchTypographyBody>
+                    </Stack>
 
-                    <Typography
-                      sx={{
-                        fontFamily: 'Libre Franklin, Arial, sans-serif',
-                        fontWeight: '400',
-                        fontSize: '30px',
-                        width: '100%',
-                        mt: 2,
-                        color: 'lightgray',
-                      }} >{article.title}</Typography>
-                    <Typography
-                      sx={{
-                        fontFamily: 'Libre Franklin, Arial, sans-serif',
-                        fontWeight: '200',
-                        fontSize: '15px',
-                        width: '100%',
-                        color: 'lightgray',
-                      }} >{article.content}</Typography>
+                    <Box sx={{ backgroundColor: "white", height: "0.5px" ,margin:"10px"}}> </Box>
+
+                    <GlitchTypographyBody fontSize="15px">{article.content}</GlitchTypographyBody>
 
                   </Article>
                 </Link>

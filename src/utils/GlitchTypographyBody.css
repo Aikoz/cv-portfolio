@@ -35,15 +35,15 @@ body {
 }
 
 .glitch:before {
-  left: -2px;
+  left: -1px;
   text-shadow: 1px 0 rgb(106, 106, 2);
-  animation: noise-anim-2 10s infinite linear alternate-reverse;
+  animation: noise-anim-2 15s infinite linear alternate-reverse;
 }
 
 @keyframes noise-anim {
   0% { clip: rect(42px, 9999px, 44px, 0); }
 
-  60% { clip: rect(42px, 9999px, 44px, 0); }
+  10% { clip: rect(42px, 9999px, 44px, 0); }
   70% { clip: rect(78px, 9999px, 19px, 0); }
   80% { clip: rect(12px, 9999px, 33px, 0); }
   90% { clip: rect(44px, 9999px, 72px, 0); }
@@ -53,7 +53,7 @@ body {
 @keyframes noise-anim-2 {
   0% { clip: rect(23px, 9999px, 63px, 0); }
   
-  80% { clip: rect(23px, 9999px, 63px, 0); }
+  5% { clip: rect(23px, 9999px, 63px, 0); }
   100% { clip: rect(41px, 9999px, 30px, 0); }
 }
 
