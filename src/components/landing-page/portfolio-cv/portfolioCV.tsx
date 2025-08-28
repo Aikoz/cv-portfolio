@@ -4,7 +4,6 @@ import { Box, Grid, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import GlitchTypography from "../../../utils/glitchTypography";
 import CyberpunkTypography from "../../../utils/cyberpunkTypography";
-import pdfFile from '../../../assets/resume.pdf'; // Asegúrate de cambiar la ruta al archivo PDF
 
 
 
